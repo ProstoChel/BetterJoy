@@ -161,6 +161,8 @@ __myevic__ void ProfileMenuIDraw( int it, int line, int sel )
 
 __myevic__ int ProfileMenuOnEvent( int event )
 {
+        SaveProfile();
+
 	if ( CurrentMenuItem >= DATAFLASH_PROFILES_MAX )
 		return 0;
 
@@ -170,17 +172,17 @@ __myevic__ int ProfileMenuOnEvent( int event )
 			break;
 
 		case 15: // Single Fire
-			if ( CurrentMenuItem != dfProfile ) 
+//			if ( CurrentMenuItem != dfProfile ) 
                             //need. enter in menu is single click (
                             //u can not load current profile
-			{
+//			{
                             if ( IsProfileValid( CurrentMenuItem ) )
                             {
 				LoadProfile( CurrentMenuItem );
                                 dfProfile = CurrentMenuItem;
                                 Event = EVENT_EXIT_MENUS;
                             }
-                        }
+ //                       }
 			break;
 
 		case EVENT_LONG_FIRE:
@@ -597,10 +599,6 @@ __myevic__ void ClicksMenuIDraw( int it, int line, int sel )
 			DrawString( String_Clock, 28, line+2 );
 			break;
 
-		case CLICK_ACTION_TDOM:
-			DrawString( String_PPwr, 28, line+2 );
-			break;
-
 		case CLICK_ACTION_NEXT_MODE:
 			DrawString( String_ModePlus, 28, line+2 );
 			break;
@@ -752,16 +750,12 @@ __myevic__ void IFMenuIDraw( int it, int line, int sel )
 		case 4:	// Temp
 			DrawImageRight( 63, line+2, dfIsCelsius ? 0xC9 : 0xC8 );
 			break;
-
-		case 5:	// TDom
-			DrawStringRight( dfStatus.priopwr ? String_On : String_Off, 63, line+2 );
-			break;
                         
-		case 6:	// UI
+		case 5:	// UI
 			DrawValueRight( 63, line+2, dfUIVersion + 1, 0, 0x0B, 0 );
 			break;
                         
-                case 7: //splash 00 01 10
+                case 6: //splash 00 01 10
                         {
                             int f = dfStatus2.splash0 | ( dfStatus2.splash1 << 1 );  // 0 1 2 3
                             const uint8_t *strings[] =
@@ -771,7 +765,7 @@ __myevic__ void IFMenuIDraw( int it, int line, int sel )
                             DrawStringRight( s, 63, line+2 );
                         }
 			break;
-		case 8:	// SwapMP
+		case 7:	// SwapMP
 			DrawStringRight( dfStatus2.swap_mp ? String_On : String_Off, 63, line+2 );
 			break;
 
@@ -3682,14 +3676,13 @@ const menu_t IFMenu =
 	0,
 	IFMenuOnClick+1,
 	0,
-	10,
+	9,
 	{
                 { String_Clicks, &ClicksMenu, 0, MACTION_SUBMENU },
 		{ String_1Watt, 0, 0, 0 },
 		{ String_1C5F, 0, 0, 0 },
 		{ String_WakeMP, 0, 0, 0 },
 		{ String_Temp, 0, 0, 0 },
-		{ String_PPwr, 0, 0, 0 },
                 { String_UI, 0, 0, 0 },
                 { String_Splash, 0, 0, 0 },  
                 { String_SwapMP, &SwapMP, 0, MACTION_DATA },  
@@ -3934,9 +3927,9 @@ const menu_t MainMenu =
 	0,
 	8,
 	{
+		{ String_Vaping, &VapingMenu, 0, MACTION_SUBMENU },
 		{ String_Screen, &ScreenMenu, 0, MACTION_SUBMENU },
 		{ String_Coils, &CoilsMenu, 0, MACTION_SUBMENU },
-		{ String_Vaping, &VapingMenu, 0, MACTION_SUBMENU },
 		{ String_Clock, &ClockMenu, 0, MACTION_SUBMENU },
 		{ String_Interface, &IFMenu, 0, MACTION_SUBMENU },
 		{ String_Expert, &ExpertMenu, 0, MACTION_SUBMENU },

@@ -928,8 +928,8 @@ __myevic__ void EventHandler()
 		//	return;
                         
 		case 18:	// Flip display
-			if ( !dfStatus.off )
-				return;
+//			if ( !dfStatus.off )
+//				return;
                         
 			dfStatus.flipped ^= 1;
 			InitDisplay();

@@ -276,7 +276,7 @@ __myevic__ void GetUserInput()
 			if ( LastInputs == 1 )
 			{
 				StopFire();                            
-                                //gFlags.refresh_display = 1; //bad idea // for correct last FireDuration in TC
+                                gFlags.refresh_display = 1; //bad idea // for correct last FireDuration in TC // ЧО?
                                 if ( apuff )
                                 {
                                     apuff = 0;
@@ -549,7 +549,7 @@ __myevic__ void GetUserInput()
 			// Left + Right button
 			if ( IsMenuScreen() )
 			{
-				Event = EVENT_PARENT_MENU;
+				Event = EVENT_EXIT_MENUS;
 			}
 		}
 		else if ( UserInputs == 5 )
@@ -557,7 +557,7 @@ __myevic__ void GetUserInput()
 			// Fire + Right button
 			if ( IsMenuScreen() )
 			{
-				Event = EVENT_EXIT_MENUS;
+				Event = EVENT_PARENT_MENU;
 			}
 			else if ( !dfStatus.off )
 			{
@@ -605,7 +605,7 @@ __myevic__ void GetUserInput()
 			else
 			{
                                 gFlags.user_idle = 0;
-				Event = EVENT_PROFILE_MENU;	// profile selection
+				Event = 18;	// EVENT_PROFILE_MENU profile selection
 			}
 		}
 		else if ( UserInputs == 6 )
@@ -641,7 +641,7 @@ __myevic__ void GetUserInput()
                     {
                         if ( EditItemIndex == 4 ) //3-d info line
                         {
-				EditModeTimer = 1000;
+				EditModeTimer = 1500;
 				if ( dfAPT3 == 1 )
 					Event = 22;	// puff reset
 				else if ( dfAPT3 == 2 )
@@ -651,7 +651,7 @@ __myevic__ void GetUserInput()
                         }
                         else if ( EditItemIndex == 5 )
                         {
-                            EditModeTimer = 1000;
+                            EditModeTimer = 1500;
 				if ( dfAPT == 1 )
 					Event = 22;	// puff reset
                                 else if ( dfAPT == 2 )

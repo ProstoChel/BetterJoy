@@ -648,8 +648,8 @@ __myevic__ void ResetDataFlash()
 	dfTemp = 200;
 //	dfResistance = 0;
 //	dfUIVersion = 2;
-	dfAPT = 6;
-	dfAPT3 = 5;
+	dfAPT = 0;
+	dfAPT3 = 7;
 //	dfRezTI = 0;
 //	dfRezNI = 0;
 //	dfRezLockedTI = 0;

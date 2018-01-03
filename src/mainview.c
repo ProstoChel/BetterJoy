@@ -457,8 +457,8 @@ __myevic__ void DrawAPTLines()
 			int rez = AtoError ? 0 : AtoRezMilli;
 			//int nd = ( rez < 1000 ) ? 3 : 4;
 			DrawString( String_RES_s, 0, line+2 );
-			DrawValueRight( 55, line, rez, 3, 0x1F, 4 );
-			DrawImage( 56, line+2, 0xC0 );
+			DrawValueRight( 63, line, rez, 3, 0x1F, 4 );
+//			DrawImage( 56, line+2, 0xC0 );
 			// Refresh every second
 			ScreenRefreshTimer = 10;
 			break;
@@ -502,17 +502,23 @@ __myevic__ void DrawAPTLines()
 //=============================================================================
 __myevic__ void ShowFireDuration( int line )
 {
-	int x;
-	DrawFillRect( 0, line, 63, line+9, 1 );
-        DrawPixel( 0, 0, 0 );
-        DrawPixel( 63, 0, 0 );
-        DrawPixel( 0, line+9, 0 );
-        DrawPixel( 63, line+9, 0 );
-	DrawFillRect( 1, line+1, 62, line+8, 0 );
-	x = ( FireDuration > dfProtec / 2 ) ? 5 : 38;
-	DrawValue( x, line+1, FireDuration, 1, 0xB, 0 );
-	DrawImage( x + 15 + 6 * ( FireDuration > 99 ), line+1, 0x94 );
-	InvertRect( 1, line+1, 3 + 59 * FireDuration / dfProtec, line+8 );   
+//	int x;
+	DrawFillRect( 0, line, 63, line+9, 0 ); //1 );
+//        DrawPixel( 0, 0, 0 );
+//        DrawPixel( 63, 0, 0 );
+//        DrawPixel( 0, line+9, 0 );
+//        DrawPixel( 63, line+9, 0 );
+//	DrawFillRect( 1, line+1, 62, line+8, 0 );
+//	x = ( FireDuration > dfProtec / 2 ) ? 5 : 38;
+	DrawValue( 0, line+1, FireDuration, 1, 0xB, 0 );
+	DrawImage( 0 + 15 + 6 * ( FireDuration > 99 ), line+1, 0x94 );
+//	InvertRect( 1, line+1, 3 + 59 * FireDuration / dfProtec, line+8 );   
+
+//	DrawValue( 27, line+1, AtoCurrent, 1, 0xB, 0 );
+        DrawValue( 39, line+1, gFlags.firing?AtoVolts:0, 2, 0xB, 0 );
+	DrawImage( 59, line+1, 0x97 );
+//	DrawValue( 27, line, gFlags.firing?AtoVolts:0, 2, 0x1F, 3 );
+
 /*
 	//DrawFillRect( 0, line, 63, line+15, 1 );
 	DrawFillRect( 0, line, 63, line+10, 0 );
@@ -976,15 +982,15 @@ __myevic__ void ShowMainView()
 	if ( dfMode != 6 )
 	{
             
-            static uint8_t sx = 0; //pacman line
+//            static uint8_t sx = 0; //pacman line
                 
 
-            {
-                sx = 0;
-                DrawHLineDots( 0, 41, 63, 1 ); //main first h-lines
-            }
+ //           {
+//                sx = 0;
+//                DrawHLineDots( 0, 41, 63, 1 ); //main first h-lines
+//           }
 
-		DrawHLineDots( 0, 113, 63, 1 ); //second h-line
+//		DrawHLineDots( 0, 113, 63, 1 ); //second h-line
 
 		ShowBattery();
 
