@@ -1,4 +1,4 @@
-TARGET := myevic
+TARGET := BetterJoy
 
 # We make the following assumptions on Windows:
 # arm-none-eabi gcc and binutils are compiled for Windows,
