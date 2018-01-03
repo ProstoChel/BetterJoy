@@ -226,7 +226,7 @@ __myevic__ void SetClicksAction( uint8_t num )
 							break;
                                                         
                                                 case CLICK_ACTION_SAVER:
-							FireClicksEvent = EVENT_SAVER;
+							FireClicksEvent = EVENT_EDIT_CONTRAST;//EVENT_SAVER
 							break;       
 
                                                 case CLICK_ACTION_MENU:
@@ -419,7 +419,7 @@ __myevic__ void GetUserInput()
 	// 60 milliseconds before an event is emitted.
 	// (Taking into account the 50ms debounce time)
 
-	if ( KeyPressTime == 6 )
+	if ( KeyPressTime == 1 )
 	{
 		gFlags.user_idle = 0;
 
@@ -634,7 +634,7 @@ __myevic__ void GetUserInput()
 			}
 		}                
         }
-	else if ( KeyPressTime == 200 )
+	else if ( KeyPressTime == 70 )
 	{
 		if ( UserInputs == 1 ){
                     if (( Screen == 1 ) && ( EditModeTimer > 0 ))
@@ -898,14 +898,14 @@ __myevic__ int EvtPlusButton()
 		{
                     if ( ContrastNum )
                     {
-			if ( dfContrast2 <= 250 ) dfContrast2 += 5;
-			else dfContrast2 = 255;
+			if ( dfContrast2 < 255 ) dfContrast2 += 85;
+			else dfContrast2 = 0;
                         //DisplaySetContrast( dfContrast2 );                       
                     }
                     else
                     {
-			if ( dfContrast <= 250 ) dfContrast += 5;
-			else dfContrast = 255;
+			if ( dfContrast < 255 ) dfContrast += 85;
+			else dfContrast = 0;
                         DisplaySetContrast( dfContrast );
                         //gFlags.MainContrast = 1;
                     }
@@ -1076,14 +1076,14 @@ __myevic__ int EvtMinusButton()
 		{
                     if ( ContrastNum )
                     {
-			if ( dfContrast2 >= 5 ) dfContrast2 -= 5;
-			else dfContrast2 = 0;
+			if ( dfContrast2 >= 85 ) dfContrast2 -= 85;
+			else dfContrast2 = 255;
                         //DisplaySetContrast( dfContrast2 );                       
                     }
                     else
                     {
-			if ( dfContrast >= 5 ) dfContrast -= 5;
-			else dfContrast = 0;                       
+			if ( dfContrast >= 85 ) dfContrast -= 85;
+			else dfContrast = 255;                       
                         DisplaySetContrast( dfContrast );
                         //gFlags.MainContrast = 1;
                     }

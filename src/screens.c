@@ -66,7 +66,7 @@ __myevic__ void DrawScreen()
 
 	if ( gFlags.refresh_display )
 	{
-		gFlags.refresh_display = 0;
+		gFlags.refresh_display = 1;
 		ClearScreenBuffer();
 
 		switch ( Screen )
@@ -311,7 +311,7 @@ __myevic__ void DrawScreen()
 	}
 
 	if (( gFlags.firing ) && ISMODETC(dfMode))
-		TenthOfSecs += 5;
+		TenthOfSecs += 1;
 	else
 		TenthOfSecs += 1;
 

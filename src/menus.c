@@ -523,10 +523,10 @@ __myevic__ int ScreenMenuOnEvent( int event )
 			switch ( CurrentMenuItem )
                         {
 				case 5: //fire scr duration
-					if ( ++dfFireScrDuration > 9 )
+					if ( ++dfFireScrDuration > 60 )
 					{
 						if ( KeyTicks < 5 ) dfFireScrDuration = 1;
-						else dfFireScrDuration = 9;
+						else dfFireScrDuration = 60;
 					}
 					vret = 1;
 					break;                                        
@@ -539,7 +539,7 @@ __myevic__ int ScreenMenuOnEvent( int event )
 				case 5: //fire scr duration
 					if ( --dfFireScrDuration < 1 )
 					{
-						if ( KeyTicks < 5 ) dfFireScrDuration = 9;
+						if ( KeyTicks < 5 ) dfFireScrDuration = 60;
 						else dfFireScrDuration = 1;
 					}
 					vret = 1;
@@ -771,7 +771,10 @@ __myevic__ void IFMenuIDraw( int it, int line, int sel )
                             DrawStringRight( s, 63, line+2 );
                         }
 			break;
-                        
+		case 8:	// SwapMP
+			DrawStringRight( dfStatus2.swap_mp ? String_On : String_Off, 63, line+2 );
+			break;
+
 		default:
 			break;
 	}
@@ -2839,7 +2842,7 @@ const menu_t PreheatMenu =
 	0,
 	0,
 	PreheatMEvent+1,
-	7,
+	8,
 	{       
                 { String_Enable, 0, 0, 0 },
 		{ String_Unit, 0, 0, 0 },
@@ -2847,7 +2850,8 @@ const menu_t PreheatMenu =
 		{ String_Time, 0, 0, 0 },
 		{ String_Delay, &PreheatDelayData, 0, MACTION_DATA },
                 { String_SMART, &PreheatSmartData, 0, MACTION_DATA },        
-		{ String_Back, 0, EVENT_PARENT_MENU, 0 }
+		{ String_Back, 0, EVENT_PARENT_MENU, 0 },
+		{ String_Exit, 0, EVENT_EXIT_MENUS, 0 }
 	}
 };
 
@@ -3122,19 +3126,19 @@ const menu_t MiscsMenu =
 	0,
 	MiscMenuOnClick+1,
 	MiscMenuOnEvent+1,
-	9,
+	8,
 	{
 		{ String_Game, &GameMenu, 0, MACTION_SUBMENU },
                 { String_Tetris, &GameTtMenu, 0, MACTION_SUBMENU },                        
 		{ String_Led, &LedMenu, 0, MACTION_SUBMENU },
 		//{ String_3D, &Object3DMenu, 0, MACTION_SUBMENU },
                 //{ String_FiFlip, &FireFlip, 0, MACTION_DATA },     
-                { String_SwapMP, &SwapMP, 0, MACTION_DATA },  
                 { String_NewZC, &NBZC, 0, MACTION_DATA },
                 { String_ZeroCnts, 0, EVENT_EXIT_MENUS, 0 },
                 { String_Version, 0, 29, 0 },
                 { String_Reset, 0, 0, 0 },        
 		{ String_Back, 0, EVENT_PARENT_MENU, 0 }
+
 	}
 };
 
@@ -3678,7 +3682,7 @@ const menu_t IFMenu =
 	0,
 	IFMenuOnClick+1,
 	0,
-	9,
+	10,
 	{
                 { String_Clicks, &ClicksMenu, 0, MACTION_SUBMENU },
 		{ String_1Watt, 0, 0, 0 },
@@ -3687,7 +3691,8 @@ const menu_t IFMenu =
 		{ String_Temp, 0, 0, 0 },
 		{ String_PPwr, 0, 0, 0 },
                 { String_UI, 0, 0, 0 },
-                { String_Splash, 0, 0, 0 },        
+                { String_Splash, 0, 0, 0 },  
+                { String_SwapMP, &SwapMP, 0, MACTION_DATA },  
 		{ String_Back, 0, EVENT_PARENT_MENU, 0 }
 	}
 };

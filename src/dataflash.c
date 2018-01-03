@@ -693,7 +693,7 @@ __myevic__ void ResetDataFlash()
 //      dfDimTimeout = 20;          //see dfScrMainTime; set in GetMainScreenDuration()
 //      dfStealthPuffsCnt = 0;
 //      dfDimOffMode = 0;
-        dfDimOffTimeout = 180;      //sleep timeout     
+        dfDimOffTimeout = 60;      //sleep timeout     
 	dfTCRM[0] = 90;
 	dfTCRM[1] = 100;
 	dfTCRM[2] = 110;
@@ -708,7 +708,7 @@ __myevic__ void ResetDataFlash()
         dfTTSpeed = 2;
         dfColdLockTemp = 20;        //cels
         dfNewRezPerc = 5;           //%
-	dfContrast = 45;            //17%
+	dfContrast = 85;            //17%
 //      dfContrast2 = 0;
 //	dfModesSel = 0;
 	dfClkRatio = RTC_DEF_CLK_RATIO;
@@ -716,10 +716,12 @@ __myevic__ void ResetDataFlash()
         dfPuffsOff = PUFFS_OFF_DEF;
         dfHideLogo = 3;
 	dfPreheatTime = 10;
-	dfClick[0] = CLICK_ACTION_EDIT;
-	dfClick[1] = CLICK_ACTION_ON_OFF;
-	dfClick[2] = CLICK_ACTION_TETRIS;
+        dfStealthPuffsCnt = 2;
+	dfClick[0] = CLICK_ACTION_TDOM;
+	dfClick[1] = CLICK_ACTION_PROFILE;
+	dfClick[2] = CLICK_ACTION_EDIT;
         dfClick[3] = CLICK_ACTION_ON_OFF;
+        dfThreeButtonsAct = CLICK_ACTION_SAVER;
 //	dfBatteryModel = 0;
 	dfPreheatPwr = 300;
 	dfTCAlgo = TCALGO_DEF;
@@ -730,7 +732,7 @@ __myevic__ void ResetDataFlash()
 //	dfMillis = 0;
 //	dfProfile = 0;
     //    dfStatus.offmodclock = 0;
-        dfFireScrDuration = 2;
+        dfFireScrDuration = 10;
         Object3D = 7;
     //    dfMaxPower = 0;
     //    dfMaxVolts = 0;

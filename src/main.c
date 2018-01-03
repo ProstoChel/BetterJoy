@@ -1221,7 +1221,14 @@ __myevic__ void Main()
 			{
 				DrawScreen();
 			}
-
+                        
+			if ( gFlags.firing )
+                        {
+				if ( ISMODETC(dfMode) )
+				{
+					DrawScreen();
+				}
+			}
 			if ( KeyTicks < 5 )
 			{
 				KeyRepeat();
@@ -1287,13 +1294,7 @@ __myevic__ void Main()
                                 ResetAllCounters();     
                         }
  
-			if ( gFlags.firing )
-                        {
-				if ( ISMODETC(dfMode) )
-				{
-					DrawScreen();
-				}
-			}
+
 			else
                         {
                             //if ( AtoError == 2 ) 

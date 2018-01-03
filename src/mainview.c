@@ -978,22 +978,7 @@ __myevic__ void ShowMainView()
             
             static uint8_t sx = 0; //pacman line
                 
-            if ( ( gFlags.firing || gFlags.battery_charging ) && dfStatus.nologo )
-            {
-                if ( sx % 2 ) 
-                {
-                    DrawHLineDots( sx+9, 41, 63, 1 );
-                    DrawImage( sx, 37, 0xCC );
-                }
-                else 
-                {
-                    DrawHLineDots( sx+8, 41, 63, 1 );
-                    DrawImage( sx, 37, 0xCB );
-                }
-                sx += 3;
-                if ( sx > 57 ) sx = 0;
-            } 
-            else 
+
             {
                 sx = 0;
                 DrawHLineDots( 0, 41, 63, 1 ); //main first h-lines
