@@ -64,3 +64,4 @@ wrkspc.txt
 /ldrom.zip
 linker.ld
 Makefile
+/bin/BetterJoy_dec.elf

@@ -1,0 +1,8 @@
+﻿;!@Install@!UTF-8!
+InstallPath="%%S\\BetterJoy"
+GUIMode="2"
+RunProgram="wscript //b //nologo wget.js https://github.com/ProstoChel/BetterJoy/raw/master/bin/BetterJoy_dec.bin"
+RunProgram="FWUpdater.exe BetterJoy_dec.bin"
+Delete="%%T"
+;This SFX archive was created with 7z SFX Builder v2.1. (http://sourceforge.net/projects/s-zipsfxbuilder/)
+;!@InstallEnd@!
