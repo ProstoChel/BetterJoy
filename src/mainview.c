@@ -515,8 +515,14 @@ __myevic__ void ShowFireDuration( int line )
 //	InvertRect( 1, line+1, 3 + 59 * FireDuration / dfProtec, line+8 );   
 
 //	DrawValue( 27, line+1, AtoCurrent, 1, 0xB, 0 );
-        DrawValue( 39, line+1, gFlags.firing?AtoVolts:0, 2, 0xB, 0 );
-	DrawImage( 59, line+1, 0x97 );
+// volts        DrawValue( 39, line+1, gFlags.firing?AtoVolts:0, 2, 0xB, 0 );
+//	DrawImage( 59, line+1, 0x97 );
+	DrawValueRight( 34, line+1, dfTimeCount / 36000, 0, 0xB, 0 );
+	DrawImage( 34, line+1, 0xD7 );
+        DrawValue( 37, line+1, dfTimeCount / 600 % 60, 0, 0xB, 2 );
+        DrawImage( 49, line+1, 0xD7 );
+        DrawValue( 52, line+1, dfTimeCount / 10 % 60, 0, 0xB, 2 );       
+        
 //	DrawValue( 27, line, gFlags.firing?AtoVolts:0, 2, 0x1F, 3 );
 
 /*
