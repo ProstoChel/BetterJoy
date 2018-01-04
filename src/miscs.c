@@ -1035,8 +1035,13 @@ __myevic__ void qix_diddle(int16_t *ptr)
 //=========================================================================
 // Snow (screen burn-out recovery)
 //-------------------------------------------------------------------------
-
 __myevic__ void Snow( int redraw )
+{       
+        DisplaySetContrast(255);
+	DrawFillRect( 0, 0, 64, 128, 1 );
+	if ( !redraw );
+}
+/*__myevic__ void Snow( int redraw )
 {
 	static uint8_t tscaler = 0;
 
@@ -1054,7 +1059,7 @@ __myevic__ void Snow( int redraw )
 	}
 }
 
-
+*/
 //=========================================================================
 // LED Stuff
 //-------------------------------------------------------------------------

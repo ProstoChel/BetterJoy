@@ -319,7 +319,7 @@ __myevic__ void DrawAPTLines()
 		continue;
         
         uint8_t a = i? dfAPT3 : dfAPT;
-        int line = i? 80 : 97; 
+        int line = i? 87 : 104; 
          
 	switch ( a )
 	{
@@ -600,23 +600,23 @@ __myevic__ void DrawInfoLines()
 			case 3:
 				if ( dfStatus.priopwr )
 				{
-					DrawTempLine( 46 ); //52 );
+					DrawTempLine( 53 ); //52 );
 				}
 				else
 				{
-					DrawPwrLine( AtoPower( AtoVolts ), 46 ); //52 );
+					DrawPwrLine( AtoPower( AtoVolts ), 53 ); //52 );
 				}
 				break;
 			case 4:
                                 if ( dfStatus.vvlite )
-                                    DrawVoltsLine( dfVVLockedVolt, 46 );
+                                    DrawVoltsLine( dfVVLockedVolt, 53 );
                                 else
-                                    DrawVoltsLine( dfVWVolts, 46 );
+                                    DrawVoltsLine( dfVWVolts, 53 );
                                 
 				break;
 			case 5:
 			{
-                                DrawVoltsLine( BypassVolts, 46 );
+                                DrawVoltsLine( BypassVolts, 53 );
 				break;
 			}                      
 			default:
@@ -634,29 +634,29 @@ __myevic__ void DrawInfoLines()
 			case 3:
 				if ( dfStatus.priopwr )
 				{
-					DrawTempLine( 46 ); //52 );
+					DrawTempLine( 53 ); //52 );
 				}
 				else
 				{
-					DrawPwrLine( dfTCPower, 46 ); //52 );
+					DrawPwrLine( dfTCPower, 53 ); //52 );
 				}
 				break;
 			case 4:
                                 if ( dfStatus.vvlite )
-                                    DrawVoltsLine( dfVVLockedVolt, 46 );
+                                    DrawVoltsLine( dfVVLockedVolt, 53 );
                                 else
-                                    DrawVoltsLine( dfVWVolts, 46 );
+                                    DrawVoltsLine( dfVWVolts, 53 );
                             
 				break;
 			case 5:
-				DrawVoltsLine( BypassVolts, 46 ); //52 );
+				DrawVoltsLine( BypassVolts, 53 ); //52 );
 				break;
 			default:
 				break;
 		}
 	}
 
-	DrawCoilLine( 63 );
+	DrawCoilLine( 70 );
         DrawAPTLines();;
 }
 
@@ -683,19 +683,19 @@ __myevic__ void DrawTemp()
 		{
 			int tempc = FarenheitToC( AtoTemp );
 
-			DrawValue( 0, 13, tempc, 0, 0x48, 3 );
-			DrawImage( 48, 20, 0xE0 );
+			DrawValue( 0, 20, tempc, 0, 0x48, 3 );
+			DrawImage( 48, 27, 0xE0 );
 		}
 		else
 		{
-			DrawValue( 0, 13, AtoTemp, 0, 0x48, 3 );
-			DrawImage( 48, 20, 0xE1 );
+			DrawValue( 0, 20, AtoTemp, 0, 0x48, 3 );
+			DrawImage( 48, 27, 0xE1 );
 		}
 	}
 	else
 	{
-		DrawValue( 0, 13, dfTemp, 0, 0x48, 3 );
-		DrawImage( 48, 20, dfIsCelsius ? 0xE0 : 0xE1 );
+		DrawValue( 0, 20, dfTemp, 0, 0x48, 3 );
+		DrawImage( 48, 27, dfIsCelsius ? 0xE0 : 0xE1 );
 	}
         
         if ( ISMODETC(dfMode) )
@@ -722,8 +722,8 @@ __myevic__ void DrawPower( int pwr )
 		xp = 45;
 		//yp = 12;
 
-		DrawValue( 5, 13, pwr, 1, 0x48, 2 );
-		DrawImage( 46, 20, 0xB9 ); //W
+		DrawValue( 5, 20, pwr, 1, 0x48, 2 );
+		DrawImage( 46, 27, 0xB9 ); //W
 	}
 	else
 	{
@@ -732,15 +732,15 @@ __myevic__ void DrawPower( int pwr )
 
 		if ( pwr < 1000 )
 		{
-			DrawValue( 0, 13, pwr, 1, 0x48, 3 );
+			DrawValue( 0, 20, pwr, 1, 0x48, 3 );
 		}
 		else
 		{
-			DrawValue( 5, 13, pwr / 10, 0, 0x48, 3 );
+			DrawValue( 5, 20, pwr / 10, 0, 0x48, 3 );
 		//	DrawValue( 0, 18, pwr, 1, 0x29, 4 );
 		}
 
-		DrawImage( 54, 28, 0x98 ); //w
+		DrawImage( 54, 35, 0x98 ); //w
 	}
     }
     else
@@ -749,8 +749,8 @@ __myevic__ void DrawPower( int pwr )
 	{
 		xp = 33;
 		//yp = 12;
-		DrawValue( 13, 13, pwr / 10, 0, 0x48, 1 );
-		DrawImage( 33, 20, 0xB9 ); //W
+		DrawValue( 13, 20, pwr / 10, 0, 0x48, 1 );
+		DrawImage( 33, 27, 0xB9 ); //W
 	}
 	else
 	{
@@ -758,14 +758,14 @@ __myevic__ void DrawPower( int pwr )
 		if ( pwr < 1000 )
 		{
                     	xp = 47;
-			DrawValue( 11, 13, pwr / 10, 0, 0x48, 2 );
-                        DrawImage( 46, 28, 0xB2 ); //w
+			DrawValue( 11, 20, pwr / 10, 0, 0x48, 2 );
+                        DrawImage( 46, 35, 0xB2 ); //w
 		}
 		else
 		{
                         xp = 54;
-			DrawValue( 3, 13, pwr / 10, 0, 0x48, 3 );
-                        DrawImage( 54, 28, 0x98 ); //w
+			DrawValue( 3, 20, pwr / 10, 0, 0x48, 3 );
+                        DrawImage( 54, 35, 0x98 ); //w
 		}
 		
 	}  
