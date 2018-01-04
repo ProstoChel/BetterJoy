@@ -1,5 +1,7 @@
 TARGET := BetterJoy
 
+ts := $(shell /bin/date "+%y%m%d")
+
 # We make the following assumptions on Windows:
 # arm-none-eabi gcc and binutils are compiled for Windows,
 # so if you are using Cygwin, we will need path translations
@@ -199,13 +201,15 @@ $(TARGET)_dec.bin: $(OBJS_FIXPATH) $(MYEVIC_OBJS)
 
 $(TARGET).bin: $(TARGET)_dec.bin
 	# evic convert $(OUTDIR)/$(TARGET)_dec.bin -o $(OUTDIR)/$(TARGET).bin
+	mv $(OUTDIR)/$(TARGET)_dec.bin $(OUTDIR)/$(TARGET)_last.bin
+	cp $(OUTDIR)/$(TARGET)_last.bin $(OUTDIR)/$(TARGET)$(ts).bin
 
 docs:
 	doxygen
 
 clean:
 	rm -rf $(OBJS) $(MYEVIC_OBJS) $(AEABI_OBJS) $(OUTDIR)/$(TARGET).bin $(OUTDIR) $(DOCDIR)
-
+	mv $(OUTDIR)/$(TARGET)_dec.bin $(OUTDIR)/$(TARGET).bin
 env_check:
 ifeq ($(ARMGCC),)
 	$(error You must set the ARMGCC environment variable)
