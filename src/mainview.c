@@ -713,7 +713,7 @@ __myevic__ void DrawTemp()
 __myevic__ void DrawPower( int pwr )
 {
 	int xp, xc;
-        int yp = 12;
+        int yp = 19;
         
     if ( !dfStatus.onewatt )
     {            
