@@ -655,7 +655,7 @@ __myevic__ void ResetDataFlash()
 //	dfRezLockedTI = 0;
 //	dfRezLockedNI = 0;
 //	dfTiOn = 1;
-//	dfStealthOn = 0;
+	dfStealthOn = 0;
 //	dfTempCoefsNI = 201;
 //	dfTempCoefsTI = 101;
 	dfLEDColor = 25 << 10;
@@ -716,7 +716,7 @@ __myevic__ void ResetDataFlash()
         dfPuffsOff = PUFFS_OFF_DEF;
         dfHideLogo = 3;
 	dfPreheatTime = 10;
-        dfStealthPuffsCnt = 2;
+        dfStealthPuffsCnt = 1;
 	dfClick[0] = CLICK_ACTION_TDOM;
 	dfClick[1] = CLICK_ACTION_PROFILE;
 	dfClick[2] = CLICK_ACTION_EDIT;

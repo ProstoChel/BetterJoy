@@ -593,7 +593,7 @@ __myevic__ void GetUserInput()
                 }
 		
 	}
-        else if ( KeyPressTime == 100 )
+        else if ( KeyPressTime == 80 )
         {
 		if ( UserInputs == 5 )
 		{

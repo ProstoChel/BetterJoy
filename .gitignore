@@ -64,4 +64,7 @@ wrkspc.txt
 /ldrom.zip
 linker.ld
 Makefile
-/bin/BetterJoy_dec.elf
+/bin/BetterJoy.elf
+/expfont/*.txt
+/expfont/*.bin
+/bin/enc*
