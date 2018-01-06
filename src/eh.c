@@ -1231,11 +1231,11 @@ __myevic__ void EventHandler()
                                             }
                                             else if ( EditItemIndex == 4 )
                                             {
-                                                if ( --dfAPT3 > 11 ) dfAPT3 = 11;
+                                                if ( --dfAPT3 > 6 ) dfAPT3 = 6;
                                             }
                                             else if ( EditItemIndex == 5 )
                                             {
-                                                if ( --dfAPT > 11 ) dfAPT = 11;
+                                                if ( --dfAPT > 6 ) dfAPT = 6;
                                             }
 					}
 					else if ( !ISMODETC(dfMode) )
@@ -1415,12 +1415,12 @@ __myevic__ void EventHandler()
 							break;
 
                                                 case 4:
-							if ( ++dfAPT3 > 11 ) dfAPT3 = 0;
+							if ( ++dfAPT3 > 6 ) dfAPT3 = 0;
                                                         gFlags.edit_capture_evt = 1;
 							break;
                                                         
                                                 case 5:
-							if ( ++dfAPT > 11 ) dfAPT = 0;
+							if ( ++dfAPT > 6 ) dfAPT = 0;
                                                         gFlags.edit_capture_evt = 1;
 							break;
 
