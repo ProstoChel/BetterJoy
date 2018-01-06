@@ -326,7 +326,7 @@ __myevic__ void DrawCoilLine( int line )
 	}
 
 
-	if ( rez )
+/* i like TC on this values, fuck off	if ( rez )
 	{ //blink if res not for this mode
 		if (   ( ISMODETC(dfMode) && ( rez > 150 ) )
 			|| ( ISMODEVW(dfMode) && ( rez < 5 ) ) )
@@ -337,7 +337,7 @@ __myevic__ void DrawCoilLine( int line )
 			}
 			ScreenRefreshTimer = 5; //blink 5 times
 		}
-	}
+	} */
 }
 
 //=============================================================================
