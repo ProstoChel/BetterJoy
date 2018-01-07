@@ -649,7 +649,7 @@ __myevic__ void ResetDataFlash()
 //	dfResistance = 0;
 //	dfUIVersion = 2;
 	dfAPT = 0;
-	dfAPT3 = 7;
+	dfAPT3 = 1;
 //	dfRezTI = 0;
 //	dfRezNI = 0;
 //	dfRezLockedTI = 0;
@@ -673,8 +673,8 @@ __myevic__ void ResetDataFlash()
 //	dfStatus.dbgena = 0;        //not used
 	dfStatus.x32off = X32Off;
 	dfStatus.onewatt = 1;
-        dfStatus.vapedml = 1;
-//      dfStatus2.vapedjoules = 0;
+//        dfStatus.vapedml = 0;
+        dfStatus2.vapedjoules = 1;
 	dfStatus.digclk = 1;
 //      dfStatus2.digclk2 = 0;      //00 01 10
         dfStatus2.splash1 = 1;      //splash on with box name
@@ -708,7 +708,7 @@ __myevic__ void ResetDataFlash()
         dfTTSpeed = 2;
         dfColdLockTemp = 20;        //cels
         dfNewRezPerc = 5;           //%
-	dfContrast = 85;            //17%
+	dfContrast = 85;            //33%
 //      dfContrast2 = 0;
 //	dfModesSel = 0;
 	dfClkRatio = RTC_DEF_CLK_RATIO;

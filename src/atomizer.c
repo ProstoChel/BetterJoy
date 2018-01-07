@@ -858,7 +858,7 @@ __myevic__ void ReadAtomizer()
 			if ( AtoRezMilli > 20000 )
 			{
 				AtoStatus = 0;
-    				AtoRezMilli = 99990;
+///    				AtoRezMilli = 99990;
 				if ( gFlags.firing )
 				{
 					Event = 26; //no ato

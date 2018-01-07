@@ -286,12 +286,13 @@ __myevic__ void DrawVoltsLine( int volts, int line )
 __myevic__ void DrawCoilLine( int line )
 {
 	unsigned int rez;
+	unsigned int rez2;
 
 	if ( BLINKITEM(3) )
 		return;
 
         int fset, x, y, yoff;
-        fset = 0x1F;
+        fset = 0x0B;
         y = line;
         x = 55;
         yoff = 2;
@@ -304,7 +305,7 @@ __myevic__ void DrawCoilLine( int line )
             yoff = 8;
         }
         
-                DrawString( String_COIL_s, 0, y+yoff );
+//                DrawString( String_COIL_s, 0, y+yoff );
 
 //			rez = AtoError ? 0 : AtoRezMilli;
 
@@ -318,7 +319,10 @@ __myevic__ void DrawCoilLine( int line )
 			rez2 = dfResistance;
 		}
 
-        DrawValue( 29, line, rez, 3, 0x1F, 4 );
+        DrawValueRight( 64, line, rez, 3, 0x0B, 4 );
+        DrawValue( 0, line, rez2, 2, 0x0B, 3 );
+        DrawImage( 28, line, 0xC0 ); //lock 9
+
 
 	if     ((( dfMode == 0 ) && ( dfRezLockedNI ))
 	||	(( dfMode == 1 ) && ( dfRezLockedTI ))
@@ -331,8 +335,7 @@ __myevic__ void DrawCoilLine( int line )
             }
             else
             {    
-		DrawImage( 24, y+yoff, 0xC3 ); //lock
-                DrawValue( 0, line, rez2, 2, 0x1F, 3 );
+		DrawImage( 28, line, 0xC3 ); //lock
             }
 	}
 
@@ -426,7 +429,7 @@ __myevic__ void DrawAPTLines()
                             if ( vv > 9999 ) vv = 9999;
                             DrawImage( 0, line+2, 0xDE ); //energy
                             DrawValue( 29, line, vv, 2, 0x1F, 0 );
-                            DrawImage( 57, line, 0x67 ); //wh
+//                            DrawImage( 57, line, 0x67 ); //wh
                         }                       
                         else
                         {
@@ -442,7 +445,7 @@ __myevic__ void DrawAPTLines()
 				DrawImage( 0, line+2, 0xF3 ); //mld
 				DrawValueRight( 28, line, vv, 2, 0x1F, 0 );
                             }
-                            DrawImage( 58, line+2, 0xCD ); //flask
+//                            DrawImage( 58, line+2, 0xCD ); //flask
                         }
 			break;
 		}
@@ -545,7 +548,7 @@ __myevic__ void DrawAPTLines()
                 case 6: // batts total
 		{
 			DrawString( String_BATT_s, 0, line+2 );
-                        DrawValue( 29, line+2, gFlags.firing?RTBVTotal:BattVoltsTotal, 2, 0x1F, 4 ); 
+                        DrawValue( 29, line, gFlags.firing?RTBVTotal:BattVoltsTotal, 2, 0x1F, 4 ); 
  //                       DrawImage( 58, line+2, 0x7D );
 			break;
 		} 
@@ -712,6 +715,12 @@ __myevic__ void DrawInfoLines()
 
 	DrawCoilLine( 70 );
         DrawAPTLines();;
+        DrawLine(0,11,64,11,1,1);
+        DrawLine(0,51,64,51,1,1);
+        DrawLine(0,66,64,66,1,1);
+        DrawLine(0,81,64,81,1,1);
+        DrawLine(31,51,31,66,1,1);
+        DrawLine(0,117,64,117,1,1);
 }
 
 
