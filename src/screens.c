@@ -41,7 +41,7 @@ void SetScreen( int screen, int duration )
 
 //=========================================================================
 // Called at a frequency of 10Hz except when firing in TC modes.
-// Called at a frequency of 2Hz when firing in TC modes.
+// Called at a frequency of 2Hz when firing in TC modes. // it's bullsiht (Dreamject)
 
 __myevic__ void DrawScreen()
 {
@@ -669,27 +669,27 @@ __myevic__ void ShowBattery()
                         if ( ISSINFJ200 )
                         {
                             t = dfIsCelsius ? AkkuTemp : CelsiusToF( AkkuTemp );
-                            DrawValueRight( 64, 120, t, 0, 0x0B, 0 );
+                            DrawValueRight( 64, 120-3, t, 0, 0x1F, 0 );
                             //DrawImage( 54, 90, dfIsCelsius ? 0xC9 : 0xC8 );
                         }
                         else
                         
                         t = dfIsCelsius ? BoardTemp : CelsiusToF( BoardTemp );
-			DrawValueRight( 64, 120, t, 0, 0x0B, t>99?3:2 );
+			DrawValueRight( 64, 120-3, t, 0, 0x1F, t>99?3:2 );
 //			DrawImage( 57, 120, dfIsCelsius ? 0xC9 : 0xC8 );
                         }
                         
         if ( dfBattLine == 2 )
 		{
 			uint16_t bv = gFlags.firing ? RTBattVolts : BatteryVoltage;
-			DrawValueRight(	20, 120, bv, 2, 0x0B, 0 );
-			DrawImage( 21, 120, 0x7D );
+			DrawValueRight(	20, 120-3, bv, 2, 0x1F, 0 );
+			DrawImage( 21, 120-3, 0x7D );
 		}
 	else if ( dfBattLine == 1 )
 		{
                         uint16_t bv = gFlags.firing ? RTBattVolts : BatteryVoltage;
-			DrawValue( 0, 120, BatteryPercent, 0, 0x0B, 0 );
-			DrawValue( 23, 120, bv, 2, 0x0B, 3 );                        
+			DrawValue( 0, 120-3, BatteryPercent, 0, 0x1F, 0 );
+			DrawValue( 23, 120-3, bv, 2, 0x1F, 3 );                        
 		}
 
 	if ( gFlags.battery_10pc && !gFlags.battery_charging )
@@ -812,7 +812,7 @@ __myevic__ void ShowBatCharging()
 	}
 	else
 	{
-		DrawValueRight(	18, 120, BatteryPercent, 0, 0x0B, 0 );
+		DrawValueRight(	18, 120, BatteryPercent, 0, 0x1F, 0 );
 		DrawImage( 19, 120, 0xC2 );
 		DrawImage( 30, 116, 0xE2 );
 	}
@@ -846,7 +846,7 @@ __myevic__ void ShowBatCharging()
 /*
 	if (( dfScreenSaver == SSAVER_CLOCK ) || ( dfScreenSaver == SSAVER_LOGO ))
 	{
-		DrawValue(  1, 104, BatteryVoltage, 2, 0x0B, 3 );
+		DrawValue(  1, 104, BatteryVoltage, 2, 0x1F, 3 );
 		DrawImage( 27, 104, 0x7D );
 	}
 	else
@@ -854,14 +854,14 @@ __myevic__ void ShowBatCharging()
 */
 		for ( int i = 0 ; i < NumBatteries ; ++i )
 		{
-			DrawValue(  1, 104 - i * 14, BattVolts[NumBatteries - i - 1], 2, 0x0B, 3 );
+			DrawValue(  1, 104 - i * 14, BattVolts[NumBatteries - i - 1], 2, 0x1F, 3 );
 			DrawImage( 23, 104 - i * 14, 0x7D );
 		}
                 
                 if ( NumBatteries > 1 )
                 {
                 DrawString( String_USB, 6, 0 );
-                DrawValue(  31, 9, USBVolts, 2, 0x0B, 3 );
+                DrawValue(  31, 9, USBVolts, 2, 0x1F, 3 );
                 DrawImage( 52, 9, 0x7D );
         
                 DrawString( String_Charge, 6, 20 );
