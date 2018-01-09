@@ -237,13 +237,15 @@ __myevic__ void DrawVoltsLine( int volts, int line )
         if ( dfStatus.vvlite && dfMode == 4 )
         {
 //            DrawImage( 0, y+yoff, 0xF8 );   
+	DrawValueRight( 20, y, volts, 2, fset, 3 ); // draw volts in left space
+
         } 
         else
         {
 //            DrawString( String_VOLT_s, 0, y+yoff );
+              
         }
 	// for real bypass if ( volts > MaxVolts ) volts = MaxVolts;
-	DrawValueRight( 20, y, volts, 2, fset, 3 ); // draw volts in left space
 
         if ( dfUIVersion == 0 )
             DrawImage( 20, y+yoff, 0xB1 );

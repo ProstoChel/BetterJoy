@@ -668,7 +668,9 @@ __myevic__ void ShowBattery()
 		{
 		for ( int i = 0 ; i < NumBatteries ; ++i )
 		{
-			DrawValue(  2 + 21 * ( i), 116, BattVolts[i], 2, 0x1F, 3 );
+//BatteryTenthAll[i]
+			DrawValue(  2 + 24 * ( i), 116, BatteryVoltsToPercent( BattVolts[i] ), 0, 0x1F, 2 );
+///			DrawValue(  2 + 21 * ( i), 116, BattVolts[i], 2, 0x1F, 3 );
 	//		DrawImage( 23 + 32 * ( i & 1 ), 100 + ( i >> 1 ) * 12, 0x7D );
 		}
                 }
