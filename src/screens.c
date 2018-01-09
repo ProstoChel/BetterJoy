@@ -664,20 +664,14 @@ __myevic__ void ShowBattery()
         int y;
         
         if ( BLINKITEM(6) ) return;
-            if ( dfBattLine == 1 || dfBattLine == 2 )
-		{int t;
-                        if ( ISSINFJ200 )
-                        {
-                            t = dfIsCelsius ? AkkuTemp : CelsiusToF( AkkuTemp );
-                            DrawValueRight( 64, 120-3, t, 0, 0x1F, 0 );
-                            //DrawImage( 54, 90, dfIsCelsius ? 0xC9 : 0xC8 );
-                        }
-                        else
-                        
-                        t = dfIsCelsius ? BoardTemp : CelsiusToF( BoardTemp );
-			DrawValueRight( 64, 120-3, t, 0, 0x1F, t>99?3:2 );
-//			DrawImage( 57, 120, dfIsCelsius ? 0xC9 : 0xC8 );
-                        }
+            if ( dfBattLine == 1 )
+		{
+		for ( int i = 0 ; i < NumBatteries ; ++i )
+		{
+			DrawValue(  2 + 21 * ( i), 116, BattVolts[i], 2, 0x1F, 3 );
+	//		DrawImage( 23 + 32 * ( i & 1 ), 100 + ( i >> 1 ) * 12, 0x7D );
+		}
+                }
                         
         if ( dfBattLine == 2 )
 		{
@@ -685,12 +679,7 @@ __myevic__ void ShowBattery()
 			DrawValueRight(	20, 120-3, bv, 2, 0x1F, 0 );
 			DrawImage( 21, 120-3, 0x7D );
 		}
-	else if ( dfBattLine == 1 )
-		{
-                        uint16_t bv = gFlags.firing ? RTBattVolts : BatteryVoltage;
-			DrawValue( 0, 120-3, BatteryPercent, 0, 0x1F, 0 );
-			DrawValue( 23, 120-3, bv, 2, 0x1F, 3 );                        
-		}
+
 
 	if ( gFlags.battery_10pc && !gFlags.battery_charging )
 	{
