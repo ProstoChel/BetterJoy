@@ -237,7 +237,6 @@ __myevic__ void DrawVoltsLine( int volts, int line )
         if ( dfStatus.vvlite && dfMode == 4 )
         {
 //            DrawImage( 0, y+yoff, 0xF8 );   
-	DrawValueRight( 20, y, volts, 2, fset, 3 ); // draw volts in left space
 
         } 
         else
@@ -248,7 +247,7 @@ __myevic__ void DrawVoltsLine( int volts, int line )
 	// for real bypass if ( volts > MaxVolts ) volts = MaxVolts;
 
         if ( dfUIVersion == 0 )
-            DrawImage( 20, y+yoff, 0xB1 );
+            DrawImage( 21, y+yoff, 0xB1 );
 
 }
 
@@ -725,7 +724,7 @@ __myevic__ void DrawInfoLines()
         DrawLine(0,46,64,46,1,1);
         DrawLine(0,63,64,63,1,1);
         DrawLine(0,80,64,80,1,1);
-        DrawLine(31,46,31,63,1,1);
+        DrawLine(32,46,32,63,1,1);
         DrawLine(0,113,64,113,1,1); 
         DrawLine(46,80,46,113,1,1);         
 }
@@ -1252,11 +1251,11 @@ __myevic__ void DrawStuff( int line, int infoline )
                     {
 //                    	DrawImage( gFlags.firing ? String_AMP_s : String_UCH_s, 0, fset );
                         if ( gFlags.firing ) DrawValueRight( 55, 50, AtoCurrent, 1, 0x1F, 3 );    
-                        else DrawValueRight( 55, 50, ChargeCurrent / 10, 2, 0x1F, 3 ); 
+                        else DrawValueRight( 57, 50, ChargeCurrent / 10, 2, 0x1F, 3 ); 
                     } else {
 //			DrawString( String_AMP_s, 0, line+6 );
-			DrawValueRight( 55, 50, ( gFlags.firing ) ? AtoCurrent : 0, 1, 0x1F, 3 );                        
+			DrawValueRight( 57, 50, ( gFlags.firing ) ? AtoCurrent : 0, 1, 0x1F, 3 );                        
                     }
-			DrawImage( 55, 52, 0x9C );
+			DrawImage( 57, 52, 0x9C );
  
 }
