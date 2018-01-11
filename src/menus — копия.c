@@ -161,6 +161,8 @@ __myevic__ void ProfileMenuIDraw( int it, int line, int sel )
 
 __myevic__ int ProfileMenuOnEvent( int event )
 {
+        SaveProfile();
+
 	if ( CurrentMenuItem >= DATAFLASH_PROFILES_MAX )
 		return 0;
 
@@ -170,17 +172,17 @@ __myevic__ int ProfileMenuOnEvent( int event )
 			break;
 
 		case 15: // Single Fire
-			if ( CurrentMenuItem != dfProfile ) 
+//			if ( CurrentMenuItem != dfProfile ) 
                             //need. enter in menu is single click (
                             //u can not load current profile
-			{
+//			{
                             if ( IsProfileValid( CurrentMenuItem ) )
                             {
 				LoadProfile( CurrentMenuItem );
                                 dfProfile = CurrentMenuItem;
                                 Event = EVENT_EXIT_MENUS;
                             }
-                        }
+ //                       }
 			break;
 
 		case EVENT_LONG_FIRE:
@@ -523,10 +525,10 @@ __myevic__ int ScreenMenuOnEvent( int event )
 			switch ( CurrentMenuItem )
                         {
 				case 5: //fire scr duration
-					if ( ++dfFireScrDuration > 9 )
+					if ( ++dfFireScrDuration > 60 )
 					{
 						if ( KeyTicks < 5 ) dfFireScrDuration = 1;
-						else dfFireScrDuration = 9;
+						else dfFireScrDuration = 60;
 					}
 					vret = 1;
 					break;                                        
@@ -539,7 +541,7 @@ __myevic__ int ScreenMenuOnEvent( int event )
 				case 5: //fire scr duration
 					if ( --dfFireScrDuration < 1 )
 					{
-						if ( KeyTicks < 5 ) dfFireScrDuration = 9;
+						if ( KeyTicks < 5 ) dfFireScrDuration = 60;
 						else dfFireScrDuration = 1;
 					}
 					vret = 1;
@@ -595,10 +597,6 @@ __myevic__ void ClicksMenuIDraw( int it, int line, int sel )
 
 		case CLICK_ACTION_CLOCK:
 			DrawString( String_Clock, 28, line+2 );
-			break;
-
-		case CLICK_ACTION_TDOM:
-			DrawString( String_PPwr, 28, line+2 );
 			break;
 
 		case CLICK_ACTION_NEXT_MODE:
@@ -752,16 +750,12 @@ __myevic__ void IFMenuIDraw( int it, int line, int sel )
 		case 4:	// Temp
 			DrawImageRight( 63, line+2, dfIsCelsius ? 0xC9 : 0xC8 );
 			break;
-
-		case 5:	// TDom
-			DrawStringRight( dfStatus.priopwr ? String_On : String_Off, 63, line+2 );
-			break;
                         
-		case 6:	// UI
+		case 5:	// UI
 			DrawValueRight( 63, line+2, dfUIVersion + 1, 0, 0x0B, 0 );
 			break;
                         
-                case 7: //splash 00 01 10
+                case 6: //splash 00 01 10
                         {
                             int f = dfStatus2.splash0 | ( dfStatus2.splash1 << 1 );  // 0 1 2 3
                             const uint8_t *strings[] =
@@ -771,7 +765,10 @@ __myevic__ void IFMenuIDraw( int it, int line, int sel )
                             DrawStringRight( s, 63, line+2 );
                         }
 			break;
-                        
+		case 7:	// SwapMP
+			DrawStringRight( dfStatus2.swap_mp ? String_On : String_Off, 63, line+2 );
+			break;
+
 		default:
 			break;
 	}
@@ -2839,7 +2836,7 @@ const menu_t PreheatMenu =
 	0,
 	0,
 	PreheatMEvent+1,
-	7,
+	8,
 	{       
                 { String_Enable, 0, 0, 0 },
 		{ String_Unit, 0, 0, 0 },
@@ -2847,7 +2844,8 @@ const menu_t PreheatMenu =
 		{ String_Time, 0, 0, 0 },
 		{ String_Delay, &PreheatDelayData, 0, MACTION_DATA },
                 { String_SMART, &PreheatSmartData, 0, MACTION_DATA },        
-		{ String_Back, 0, EVENT_PARENT_MENU, 0 }
+		{ String_Back, 0, EVENT_PARENT_MENU, 0 },
+		{ String_Exit, 0, EVENT_EXIT_MENUS, 0 }
 	}
 };
 
@@ -3122,19 +3120,19 @@ const menu_t MiscsMenu =
 	0,
 	MiscMenuOnClick+1,
 	MiscMenuOnEvent+1,
-	9,
+	8,
 	{
 		{ String_Game, &GameMenu, 0, MACTION_SUBMENU },
                 { String_Tetris, &GameTtMenu, 0, MACTION_SUBMENU },                        
 		{ String_Led, &LedMenu, 0, MACTION_SUBMENU },
 		//{ String_3D, &Object3DMenu, 0, MACTION_SUBMENU },
                 //{ String_FiFlip, &FireFlip, 0, MACTION_DATA },     
-                { String_SwapMP, &SwapMP, 0, MACTION_DATA },  
                 { String_NewZC, &NBZC, 0, MACTION_DATA },
                 { String_ZeroCnts, 0, EVENT_EXIT_MENUS, 0 },
                 { String_Version, 0, 29, 0 },
                 { String_Reset, 0, 0, 0 },        
 		{ String_Back, 0, EVENT_PARENT_MENU, 0 }
+
 	}
 };
 
@@ -3685,9 +3683,9 @@ const menu_t IFMenu =
 		{ String_1C5F, 0, 0, 0 },
 		{ String_WakeMP, 0, 0, 0 },
 		{ String_Temp, 0, 0, 0 },
-		{ String_PPwr, 0, 0, 0 },
                 { String_UI, 0, 0, 0 },
-                { String_Splash, 0, 0, 0 },        
+                { String_Splash, 0, 0, 0 },  
+                { String_SwapMP, &SwapMP, 0, MACTION_DATA },  
 		{ String_Back, 0, EVENT_PARENT_MENU, 0 }
 	}
 };
@@ -3929,9 +3927,9 @@ const menu_t MainMenu =
 	0,
 	8,
 	{
+		{ String_Vaping, &VapingMenu, 0, MACTION_SUBMENU },
 		{ String_Screen, &ScreenMenu, 0, MACTION_SUBMENU },
 		{ String_Coils, &CoilsMenu, 0, MACTION_SUBMENU },
-		{ String_Vaping, &VapingMenu, 0, MACTION_SUBMENU },
 		{ String_Clock, &ClockMenu, 0, MACTION_SUBMENU },
 		{ String_Interface, &IFMenu, 0, MACTION_SUBMENU },
 		{ String_Expert, &ExpertMenu, 0, MACTION_SUBMENU },

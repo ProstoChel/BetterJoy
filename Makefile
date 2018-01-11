@@ -202,7 +202,7 @@ $(TARGET)_dec.bin: $(OBJS_FIXPATH) $(MYEVIC_OBJS)
 $(TARGET).bin: $(TARGET)_dec.bin
 	# evic convert $(OUTDIR)/$(TARGET)_dec.bin -o $(OUTDIR)/$(TARGET).bin
 	mv $(OUTDIR)/$(TARGET)_dec.bin $(OUTDIR)/$(TARGET)_last.bin
-	cp $(OUTDIR)/$(TARGET)_lastdev.bin $(OUTDIR)/$(TARGET)$(ts).bin
+	cp $(OUTDIR)/$(TARGET)_last.bin $(OUTDIR)/$(TARGET)$(ts).bin
 
 docs:
 	doxygen
