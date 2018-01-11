@@ -46,6 +46,10 @@ Some changings from original Sur_Myevic
 -Optimized control
 -Fire screen counter changings (it keeps screen alive)
 
+
+120118 4:39
+Okay, we can not 'load' current profile, but we can just exit from menu on one click
+
 120118 4:17
 Menus.c reverted to stable version of Sur MyEvic, coz some bugs appears
 I will change it later. So, swapbuttons now in miscs, not interface again, you can not select current profile with single click

@@ -182,6 +182,8 @@ __myevic__ int ProfileMenuOnEvent( int event )
                                 Event = EVENT_EXIT_MENUS;
                             }
                         }
+                        else
+                              Event = EVENT_EXIT_MENUS;
 			break;
 
 		case EVENT_LONG_FIRE:
