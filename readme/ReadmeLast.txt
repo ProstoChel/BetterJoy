@@ -1,3 +1,6 @@
+12.01.2018
+Test readme :)
+
 11.01.2018
 
 Finally, we have readme and version history. Yeah, you can use github to get changelog, but it's not popular. This is online document
