@@ -1406,7 +1406,7 @@ __myevic__ void BatteryChargeDual()
 
 	if ( gFlags.usb_attached )
 	{
-                if ( BoardTemp < (dfMax BoardTemp-21) )
+                if ( BoardTemp < (dfMaxBoardTemp-21) )
                 {
                     Event = 12;  // Battery charge start
                     if ( dfStatus.usbchgoff = 0 )
