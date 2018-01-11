@@ -176,6 +176,7 @@ __myevic__ int ProfileMenuOnEvent( int event )
 			{
                             if ( IsProfileValid( CurrentMenuItem ) )
                             {
+                                SaveProfile();
 				LoadProfile( CurrentMenuItem );
                                 dfProfile = CurrentMenuItem;
                                 Event = EVENT_EXIT_MENUS;
