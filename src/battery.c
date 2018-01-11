@@ -1406,7 +1406,20 @@ __myevic__ void BatteryChargeDual()
 
 	if ( gFlags.usb_attached )
 	{
-		if ( dfStatus.usbchgoff || dfStatus.usbchghotoff )
+                if ( BoardTemp < (dfMax BoardTemp-21) )
+                {
+                    Event = 12;  // Battery charge start
+                    if ( dfStatus.usbchgoff = 0 )
+                    {
+			ChargeStatus = 1; //start charge
+                        dfStatus.usbchghotoff = 0;
+ //                       Overtemp();
+                        //gFlags.refresh_display = 1;
+			//Screen = 29;	// overtemp
+			//ScreenDuration = 3;                      
+                    }
+                }
+		else if ( dfStatus.usbchgoff || dfStatus.usbchghotoff )
 		{
 			if ( ChargeStatus != 5 && ChargeStatus != 6 )
 			{
@@ -1414,14 +1427,14 @@ __myevic__ void BatteryChargeDual()
 				ChargeStatus = 6;
 			}
 		}
-                else if ( BoardTemp > dfMaxBoardTemp )
+                else if ( BoardTemp > dfMaxBoardTemp-20 )
                 {
                     Event = 13;  // Battery charge stop
                     if ( ChargeStatus != 6 )
                     {
 			ChargeStatus = 6; //no charge   
                         dfStatus.usbchghotoff = 1;
-                        Overtemp();
+//                        Overtemp();
                         //gFlags.refresh_display = 1;
 			//Screen = 29;	// overtemp
 			//ScreenDuration = 3;                      
@@ -1764,7 +1777,21 @@ __myevic__ void BatteryCharge()
         
 	if ( gFlags.usb_attached )
 	{
-		if ( dfStatus.usbchgoff || dfStatus.usbchghotoff )
+                if ( ( BoardTemp < (dfMaxBoardTemp-21) ) 
+                        || ( ISSINFJ200 && ( AkkuTemp < (dfMaxBoardTemp-21) ) ) )
+                {
+                    Event = 12;  // Battery charge start
+                    if ( dfStatus.usbchgoff != 1 )
+                    {
+			ChargeStatus = 1; //no charge  
+                        dfStatus.usbchghotoff = 0;
+ //                       Overtemp();
+                        //gFlags.refresh_display = 1;
+			//Screen = 29;	// overtemp
+			//ScreenDuration = 3;                      
+                    }
+                }
+		else if ( dfStatus.usbchgoff || dfStatus.usbchghotoff )
 		{
 			if ( ChargeStatus != 5 && ChargeStatus != 6 )
 			{
@@ -1772,15 +1799,15 @@ __myevic__ void BatteryCharge()
 				ChargeStatus = 6; //no charge
 			}
 		}
-                else if ( ( BoardTemp > dfMaxBoardTemp ) 
-                        || ( ISSINFJ200 && ( AkkuTemp > 70 ) ) )
+                else if ( ( BoardTemp > (dfMaxBoardTemp-20) ) 
+                        || ( ISSINFJ200 && ( AkkuTemp > (dfMaxBoardTemp-20) ) ) )
                 {
                     Event = 13;  // Battery charge stop
                     if ( ChargeStatus != 6 )
                     {
 			ChargeStatus = 6; //no charge  
                         dfStatus.usbchghotoff = 1;
-                        Overtemp();
+ //                       Overtemp();
                         //gFlags.refresh_display = 1;
 			//Screen = 29;	// overtemp
 			//ScreenDuration = 3;                      
