@@ -1503,7 +1503,9 @@ __myevic__ int CustomEvents()
 			}
 			else if ( ISMODEVW(dfMode) )
 			{
-				MenuEvent( LastEvent );
+				dfStatus.vvlite ^= 1;
+				UpdateDFTimer = 50;
+				gFlags.refresh_display = 1;
 			}
 			break;
 

@@ -1,3 +1,7 @@
+120118 3:16
+Fixed voltsline, doubleclick (T.Dom click in VW mode means VVlite switch)
+Yesterday I lost my sources and some bugfixes :(
+
 12.01.2018
 Test readme :)
 
