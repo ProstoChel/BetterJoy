@@ -1,12 +1,3 @@
-120118 3:16
-Fixed voltsline, doubleclick (T.Dom click in VW mode means VVlite switch)
-Yesterday I lost my sources and some bugfixes :(
-
-12.01.2018
-Test readme :)
-
-11.01.2018
-
 Finally, we have readme and version history. Yeah, you can use github to get changelog, but it's not popular. This is online document
 You always can discuss BetterJoy in TG https://t.me/betterjoy and get some answers
 
@@ -45,7 +36,7 @@ In menu:
 +- - exit from menu
 
 
-Some changing from original Sur_Myevic
+Some changings from original Sur_Myevic
 
 -Battery protection (charging will be stoped at maxtemperature-21C)
 -A LOT of interface changing, some of them still not stable, but we work on it
@@ -54,3 +45,20 @@ Some changing from original Sur_Myevic
 -4 level for brightness - 0-33-66-100-0...
 -Optimized control
 -Fire screen counter changings (it keeps screen alive)
+
+120118 4:17
+Menus.c reverted to stable version of Sur MyEvic, coz some bugs appears
+I will change it later. So, swapbuttons now in miscs, not interface again, you can not select current profile with single click
+BUT you current profile will be saved if you switch another profile, you do not need to save it with long fire
+
+
+120118 3:16
+Fixed voltsline, doubleclick (T.Dom click in VW mode means VVlite switch)
+Yesterday I lost my sources and some bugfixes :(
+
+12.01.2018
+Test readme :)
+
+11.01.2018
+
+Init
