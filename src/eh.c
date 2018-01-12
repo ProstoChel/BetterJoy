@@ -1133,7 +1133,7 @@ __myevic__ void EventHandler()
 				return;
                         
 			//dfStealthOn = ( dfStealthOn == 0 );
-                        if ( ++dfStealthOn > 2 ) 
+                        if ( ++dfStealthOn > 1 ) 
                             dfStealthOn = 0; // 2 fire contrast
                         
                         SetScreen( 40, 2 );

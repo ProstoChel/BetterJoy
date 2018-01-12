@@ -90,16 +90,16 @@ __myevic__ void DrawScreen()
 
 			case  2: // Firing
 
-				if ( dfStealthOn != 2 && !gFlags.MainContrast )
+				if ( dfStealthOn != 2 && gFlags.MainContrast )
 				{
-                                        DisplaySetContrast( dfContrast );
-                                        gFlags.MainContrast = 1;
-                                }
-                                else if ( dfStealthOn == 2 && gFlags.MainContrast )
-                                {
                                         DisplaySetContrast( dfContrast2 );
                                         gFlags.MainContrast = 0;
                                 }
+/*                                else if ( dfStealthOn == 2 && gFlags.MainContrast )
+                                {
+                                        DisplaySetContrast( dfContrast2 );
+                                        gFlags.MainContrast = 0;
+                                }*/
                                                                    
                                 if ( ( dfStealthOn != 1 || StealthPuffs ) || ShowWeakBatFlag ) 
                                 {
