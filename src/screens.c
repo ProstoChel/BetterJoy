@@ -90,7 +90,7 @@ __myevic__ void DrawScreen()
 
 			case  2: // Firing
 
-				if ( dfStealthOn != 2 && gFlags.MainContrast )
+				if ( gFlags.MainContrast )
 				{
                                         DisplaySetContrast( dfContrast2 );
                                         gFlags.MainContrast = 0;
