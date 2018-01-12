@@ -913,6 +913,7 @@ __myevic__ void EventHandler()
 
 		case 22:	// Reset Puff counter
 			dfPuffCount = 0;
+			dfTimeCount = 0;
 			UpdatePTTimer = 80;
 			EditModeTimer = 1000;
 			gFlags.refresh_display = 1;

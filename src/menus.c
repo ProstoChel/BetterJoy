@@ -174,7 +174,7 @@ __myevic__ int ProfileMenuOnEvent( int event )
                             //need. enter in menu is single click (
                             //u can not load current profile
 			{
-                            if ( IsProfileValid( CurrentMenuItem ) )
+                            if (CurrentMenuItem)
                             {
                                 SaveProfile();
 				LoadProfile( CurrentMenuItem );

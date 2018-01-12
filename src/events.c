@@ -642,7 +642,7 @@ __myevic__ void GetUserInput()
                         if ( EditItemIndex == 4 ) //3-d info line
                         {
 				EditModeTimer = 1500;
-				if ( dfAPT3 == 1 )
+				if ( dfAPT3 == 0 )
 					Event = 22;	// puff reset
 				else if ( dfAPT3 == 2 )
 					Event = 23;	// time reset
@@ -652,7 +652,7 @@ __myevic__ void GetUserInput()
                         else if ( EditItemIndex == 5 )
                         {
                             EditModeTimer = 1500;
-				if ( dfAPT == 1 )
+				if ( dfAPT == 0 )
 					Event = 22;	// puff reset
                                 else if ( dfAPT == 2 )
 					Event = 23;	// time reset
