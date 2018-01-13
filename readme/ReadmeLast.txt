@@ -46,11 +46,15 @@ Some changings from original Sur_Myevic
 -Optimized control
 -Fire screen counter changings (it keeps screen alive)
 
-210118 21:30
+130118 11:17
+
+Contrast stealth still disabled, but second contrast does not wokr on firing, coz it makes glitches. I will fix it later.
+
+120118 21:30
 More images and Contrast stealth removing. But you still can set up 2Contrast on firing (current fixes can be not very good, but it works)
 
 
-210118 15
+120118 15
 Improved profile selecting, now you can reset puffs from screen edit mode+ Long fire. All counters (puffs, time) will be resetted, it not necessary to erase one of them.
 
 120118 4:39
