@@ -662,6 +662,7 @@ __myevic__ void ResetDataFlash()
 //	dfStatus.off = 0;
 //	dfStatus.keylock = 0;
 	dfStatus.flipped = ScrFlip;
+        dfStatus.timebig = 1;
 //      dfStatus.fireflip = 0;
 //      dfStatus.vvlite = 0;        //VVolt
 	dfStatus.nologo = 1;
