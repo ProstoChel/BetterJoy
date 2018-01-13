@@ -46,6 +46,13 @@ Some changings from original Sur_Myevic
 -Optimized control
 -Fire screen counter changings (it keeps screen alive)
 
+140128 1:09
+Fix profiles sings in the topchik
+
+140128 0:42
+Faster keyreaction on +- buttons, but more 'stable', bigger F/C/W symbols in main line
+Why reaction was sooooo sloooow?
+
 130118 11:17
 
 Contrast stealth still disabled, but second contrast does not wokr on firing, coz it makes glitches. I will fix it later.
