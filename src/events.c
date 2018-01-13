@@ -157,19 +157,29 @@ __myevic__ void KeyRepeat()
 		}
 		// then every 10ms.
 		// +0.40s (1.00s)
-		else if ( KeyTicks < 105 )
+		else if ( KeyTicks < 50 ) //105
 		{
+                        KRDelay = 6;
 			// Quadratic function having its minimum (1) at 104
-			KRDelay = 104 - KeyTicks;
-			KRDelay = ( KRDelay * KRDelay ) / 1090 + 1; // 545 + 1; 
+//			KRDelay = 54 - KeyTicks;
+//			KRDelay = ( KRDelay * KRDelay) / 1090 + 1; // 545 + 1; 
 		}
 		// +3.60s (4.60s)
-		else if ( KeyTicks < 205 )
+		else if ( KeyTicks < 200 ) //205
 		{
+                        KRDelay = 4;
 			// Step jumped from 1 to 10, ie. speed x10
 			// Recover this jump then smooth with same function as above
-			KRDelay = 204 - KeyTicks;
-			KRDelay = ( KRDelay * KRDelay ) / 1090 + 1; // 545 + 1;
+//			KRDelay = 204 - KeyTicks;
+//			KRDelay = ( KRDelay * KRDelay ) / 1090 + 1; // 545 + 1;
+		}
+		else if ( KeyTicks < 205 ) //205
+		{
+                        KRDelay = 1;
+			// Step jumped from 1 to 10, ie. speed x10
+			// Recover this jump then smooth with same function as above
+//			KRDelay = 204 - KeyTicks;
+//			KRDelay = ( KRDelay * KRDelay ) / 1090 + 1; // 545 + 1;
 		}
 
 		if ( !PD2 )
@@ -927,7 +937,7 @@ __myevic__ int EvtPlusButton()
 			if ( !gFlags.has_x32 )
 			{
 				unsigned int cs = RTCGetClockSpeed();
-				if ( KeyTicks < 105 )
+				if ( KeyTicks < 50 )
 				{
 					++cs;
 				}
@@ -1105,7 +1115,7 @@ __myevic__ int EvtMinusButton()
 			if ( !gFlags.has_x32 )
 			{
 				unsigned int cs = RTCGetClockSpeed();
-				if ( KeyTicks < 105 )
+				if ( KeyTicks < 50 )
 				{
 					--cs;
 				}

@@ -57,25 +57,25 @@ __myevic__ void DrawMode()
 		switch ( dfMode )
 		{
 			case 0:
-				DrawString( String_TEMP, 10, 0 );
+				DrawString( String_TEMP, 10, 4 );
 				break;
 			case 1:
-				DrawString( String_TEMP, 10, 0 );
+				DrawString( String_TEMP, 10, 4 );
 				break;
 			case 2:
-				DrawString( String_TEMP, 10, 0 );
+				DrawString( String_TEMP, 10, 4 );
 				break;
 			case 3:
-				DrawString( String_TCR, 1, 0 );
+				DrawString( String_TCR, 2, 4 );
 				break;
 			case 4:
-				DrawStringCentered( String_POWER, 0 );
+				DrawStringCentered( String_POWER, 4 );
 				break;
 			case 5:
-				DrawStringCentered( String_BYPASS, 0 );
+				DrawStringCentered( String_BYPASS, 4 );
 				break;
 			case 6:
-				DrawStringCentered( String_SMART, 0 );
+				DrawStringCentered( String_SMART, 4 );
 				break;
 			default:
 				break;
@@ -87,21 +87,21 @@ __myevic__ void DrawMode()
 		switch ( dfMode )
 		{
 			case 0:
-				DrawString( String_NI, 42, 0 );
+				DrawString( String_NI, 42, 4 );
 				break;
 			case 1:
-				DrawString( String_TI, 42, 0 );
+				DrawString( String_TI, 42, 4 );
 				break;
 			case 2:
-				DrawString( String_SS, 42 , 0 );
+				DrawString( String_SS, 42 , 4 );
 				//DrawImage( 48, 3, 0x04 );
 				//DrawImage( 54, 3, 0x02 );
 				//DrawImage( 59, 3, 0x07 );
 				break;
 			case 3:
-				DrawValue( 26, 0, dfTCRM[dfTCRIndex], 0, 0x1F, 3 );
-				DrawImage( 49, 0, 0xA8 );
-				DrawValue( 57, 0, dfTCRIndex + 1, 0, 0x1F, 1 );
+				DrawValue( 26, 2, dfTCRM[dfTCRIndex], 0, 0x1F, 3 );
+				DrawImage( 49, 4, 0xA8 );
+				DrawValue( 57, 2, dfTCRIndex + 1, 0, 0x1F, 1 );
 				break;
 			default:
 				break;
@@ -560,7 +560,7 @@ __myevic__ void DrawAPTLines()
 __myevic__ void ShowFireDuration( int line )
 {
 //	int x;
-	DrawFillRect( 0, line, 63, line+10, 0 ); //1 );
+	DrawFillRect( 0, 0, 64, 15, 0 ); //1 );
 //        DrawPixel( 0, 0, 0 );
 //        DrawPixel( 63, 0, 0 );
 //        DrawPixel( 0, line+9, 0 );
@@ -752,19 +752,19 @@ __myevic__ void DrawTemp()
 		{
 			int tempc = FarenheitToC( AtoTemp );
 
-			DrawValue( 5, 13+6, tempc, 0, 0x48, 3 );
-			DrawImage( 47, 28+6-8, 0x52 );
+			DrawValue( 0+1, 13+6, tempc, 0, 0x48, 3 );
+			DrawImage( 41+3, 28-9, 0x52 );
 		}
 		else
 		{
-			DrawValue( 5, 13+6, AtoTemp, 0, 0x48, 3 );
-			DrawImage( 47, 28+6-8, 0x53 );
+			DrawValue( 0+1, 13+6, AtoTemp, 0, 0x48, 3 );
+			DrawImage( 41+3, 28-9, 0x53 );
 		}
 	}
 	else
 	{
-		DrawValue( 5, 13+6, dfTemp, 0, 0x48, 3 );
-		DrawImage( 47, 28+6-8, dfIsCelsius ? 0x52 : 0x53 );
+		DrawValue( 0+1, 13+6, dfTemp, 0, 0x48, 3 );
+		DrawImage( 41+3, 28-9, dfIsCelsius ? 0x52 : 0x53 );
 	}
         
  /*       if ( ISMODETC(dfMode) )
@@ -791,8 +791,8 @@ __myevic__ void DrawPower( int pwr )
 		xp = 45;
 		//yp = 12;
 
-		DrawValue( 9, 13+6, pwr, 1, 0x48, 2 );
-		DrawImage( 41, 28+6-8, 0x54 ); //W
+		DrawValue( 5, 13+6, pwr, 1, 0x48, 2 );
+		DrawImage( 40, 28-9, 0x54 ); //W
 	}
 	else
 	{
@@ -801,15 +801,15 @@ __myevic__ void DrawPower( int pwr )
 
 		if ( pwr < 1000 )
 		{
-			DrawValue( 5, 13+6, pwr, 1, 0x54, 3 );
+			DrawValue( 0, 13+6, pwr, 1, 0x48, 3 );
 		}
 		else
 		{
-			DrawValue( 6, 13+6, pwr / 10, 0, 0x54, 3 );
+			DrawValue( 2, 13+6, pwr / 10, 0, 0x48, 3 );
 		//	DrawValue( 0, 18, pwr, 1, 0x29, 4 );
 		}
 
-		DrawImage( 54, 28+6-8, 0x54 ); //w
+		DrawImage( 45, 28-9, 0x54 ); //w
 	}
     }
     else
@@ -819,7 +819,7 @@ __myevic__ void DrawPower( int pwr )
 		xp = 33;
 		//yp = 12;
 		DrawValue( 7, 13+6, pwr, 1, 0x48, 2 );
-		DrawImage( 42, 28+6-8, 0x54 ); //W
+		DrawImage( 39, 28-9, 0x54 ); //W
 	}
 	else
 	{
@@ -827,20 +827,20 @@ __myevic__ void DrawPower( int pwr )
 		if ( pwr < 1000 )
 		{
                     	xp = 47;
-			DrawValue( 12, 13+6, pwr / 10, 0, 0x48, 2 );
-                        DrawImage( 41, 28+6-8, 0x54 ); //w
+			DrawValue( 8, 13+6, pwr / 10, 0, 0x48, 2 );
+                        DrawImage( 41-4, 28-9, 0x54 ); //w
 		}
 		else
 		{
                         xp = 54;
-			DrawValue( 4, 13+6, pwr / 10, 0, 0x48, 3 );
-                        DrawImage( 47, 28+6-8, 0x54 ); //w
+			DrawValue( 1, 13+6, pwr / 10, 0, 0x48, 3 );
+                        DrawImage( 44, 28-9, 0x54 ); //w
 		}
 		
 	}  
     }
 
-	if ( ISMODEVW(dfMode) )
+/*	if ( ISMODEVW(dfMode) )
 	{
 		if ( dfStatus.pcurve )
 		{

@@ -38,7 +38,8 @@ __myevic__ void PowerPlus( uint16_t *pwr, uint16_t min, uint16_t max )
 			*pwr = min;
 		}
 	}
-	else if ( KeyTicks < 105 )
+	else if ( KeyTicks < 50 )
+//	else if ( KeyTicks < 105 )            
 	{
 		if ( *pwr < 1000 )
 		{
@@ -76,7 +77,7 @@ __myevic__ void PowerMinus( uint16_t *pwr, uint16_t min, uint16_t max )
 			*pwr = max - ( max % WattsInc );
 		}
 	}
-	else if ( KeyTicks < 105 )
+	else if ( KeyTicks < 50 )
 	{
 		if ( *pwr <= 1000 )
 		{

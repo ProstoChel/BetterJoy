@@ -1039,7 +1039,7 @@ __myevic__ void Snow( int redraw )
 {       
         DisplaySetContrast(255);
 	DrawFillRect( 0, 0, 64, 128, 1 );
-	if ( !redraw );
+//	if ( !redraw );
 }
 /*__myevic__ void Snow( int redraw )
 {
