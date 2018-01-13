@@ -1077,7 +1077,7 @@ __myevic__ void EventHandler()
                         gFlags.refresh_display = 1;
 			if ( Screen == 5 )
 			{
-				if ( dfStatus.off || dfStealthOn == 1 )
+				if ( dfStatus.off || dfStealthOn )
 				{
                                     	Screen = 0;
 					gFlags.refresh_display = 1;
@@ -1132,9 +1132,9 @@ __myevic__ void EventHandler()
 			if ( dfStatus.off )
 				return;
                         
-			//dfStealthOn = ( dfStealthOn == 0 );
-                        if ( ++dfStealthOn > 1 ) 
-                            dfStealthOn = 0; // 2 fire contrast
+			dfStealthOn = ( dfStealthOn == 0 );
+//                        if ( ++dfStealthOn > 1 ) 
+//                            dfStealthOn = 0; // 2 fire contrast
                         
                         SetScreen( 40, 2 );
 			//gFlags.refresh_display = 1;
