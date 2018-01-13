@@ -1132,9 +1132,9 @@ __myevic__ void EventHandler()
 			if ( dfStatus.off )
 				return;
                         
-			//dfStealthOn = ( dfStealthOn == 0 );
+			dfStealthOn = ( dfStealthOn == 0 );
 //                        if ( ++dfStealthOn > 1 ) 
-                            dfStealthOn = 0; // 2 fire contrast
+//                            dfStealthOn = 0; // 2 fire contrast
                         
                         SetScreen( 40, 2 );
 			//gFlags.refresh_display = 1;
