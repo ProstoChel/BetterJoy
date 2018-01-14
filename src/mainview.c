@@ -99,9 +99,9 @@ __myevic__ void DrawMode()
 				//DrawImage( 59, 3, 0x07 );
 				break;
 			case 3:
-				DrawValue( 26, 2, dfTCRM[dfTCRIndex], 0, 0x1F, 3 );
+				DrawValue( 26, 4, dfTCRM[dfTCRIndex], 0, 0x0B, 3 );
 				DrawImage( 49, 4, 0xA8 );
-				DrawValue( 57, 2, dfTCRIndex + 1, 0, 0x1F, 1 );
+				DrawValue( 57, 4, dfTCRIndex + 1, 0, 0x0B, 1 );
 				break;
 			default:
 				break;
