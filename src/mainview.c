@@ -107,6 +107,11 @@ __myevic__ void DrawMode()
 				break;
 		}
 	}
+        InvertRect( 0, 2, 63, 13 );  
+        DrawPixel( 0, 2, 0 );
+        DrawPixel( 63, 2, 0 );
+        DrawPixel( 0, 13, 0 );
+        DrawPixel( 63, 13, 0 );
 }
 
 //=============================================================================
@@ -139,8 +144,8 @@ __myevic__ void DrawPwrLine( int pwr, int line )
 		//}
 		//else
 		//{
-			DrawValueRight( 14, y, pwr, 1, fset, 0 ); //100
-                        DrawImage( 14, y+yoff, 0xB2 );
+			DrawValueRight( 19, y, pwr, 1, fset, 0 ); //100
+                        DrawImage( 19, y+yoff, 0xB2 );
 			//DrawImage( x+1, y+yoff, 0x98 );
 		//}
 	}    
@@ -196,16 +201,16 @@ __myevic__ void DrawTempLine( int line )
 	{
 		if ( dfIsCelsius )
 		{
-			DrawValueRight( 20, y, FarenheitToC( AtoTemp ), 0, fset, 3 );
+			DrawValueRight( 21, y, FarenheitToC( AtoTemp ), 0, fset, 3 );
 		}
 		else
 		{
-			DrawValueRight( 20, y, AtoTemp, 0, fset, 3 );
+			DrawValueRight( 21, y, AtoTemp, 0, fset, 3 );
 		}
 	}
 	else
 	{
-		DrawValueRight( 20, y, dfTemp, 0, fset, 3 );
+		DrawValueRight( 21, y, dfTemp, 0, fset, 3 );
 	}
                
         if ( dfUIVersion == 0 )
@@ -236,15 +241,15 @@ __myevic__ void DrawVoltsLine( int volts, int line )
         
         if ( dfStatus.vvlite && dfMode == 4 )
         {
-            DrawImage( 21, y+yoff, 0x73 );           } 
+            DrawImage( 23, y+yoff, 0x73 );           } 
         else
         {
 //            DrawString( String_VOLT_s, 0, y+yoff );
 
-              DrawImage( 21, y+yoff, 0xB1 );
+              DrawImage( 23, y+yoff, 0xB1 );
         }
 	// for real bypass if ( volts > MaxVolts ) volts = MaxVolts;
-            DrawValueRight( 21, y, volts, 2, fset, 3 );
+            DrawValueRight( 23, y, volts, 2, fset, 3 );
 
 //        if ( dfUIVersion == 0 )
 //            DrawImage( 21, y+yoff, 0xB1 );
@@ -294,7 +299,7 @@ __myevic__ void DrawCoilLine( int line )
         DrawValue( 8, line, rez, 0, 0x1F, 3 );
         }
         else
-        {DrawValue( 2, line, rez, 3, 0x1F, 4 );}
+        {DrawValue( 1, line, rez, 3, 0x1F, 4 );}
 
         if (rez2<100)    
         {DrawValue( 47, line, rez2, 0, 0x1F, 2 );
@@ -303,7 +308,7 @@ __myevic__ void DrawCoilLine( int line )
         else 
         {DrawValue( 40, line, rez2, 2, 0x1F, 3 );}
                    
-        DrawImage( 31, line+2, 0xC0 ); //ohm
+        DrawImage( 29, line+2, 0xC0 ); //ohm
 //        If((rez<1000) && (rez2<1000))
 
 
@@ -314,11 +319,11 @@ __myevic__ void DrawCoilLine( int line )
 	{
             if ( dfUIVersion == 1 )
             {
-                DrawImage( 31, line+2, 0xC3 ); //lock 9
+                DrawImage( 29, line+2, 0xC3 ); //lock 9
             }
             else
             {    
-		DrawImage( 31, line+2, 0xC3 ); //lock
+		DrawImage( 29, line+2, 0xC3 ); //lock
             }
 	}
 
@@ -377,7 +382,7 @@ __myevic__ void DrawAPTLines()
 
 		case 0:	// Puff counter
 		{
-                        DrawImage( 31, line+2, 0xAB ); 
+                        DrawImage( 31, line+2, 0x77 ); 
 			DrawValueRight( 31, line, dfPuffCount, 0, 0x1F, 4 );
 			break;
 		}
@@ -574,12 +579,16 @@ __myevic__ void ShowFireDuration( int line )
 //	DrawValue( 27, line+1, AtoCurrent, 1, 0xB, 0 );
 // volts        DrawValue( 39, line+1, gFlags.firing?AtoVolts:0, 2, 0xB, 0 );
 //	DrawImage( 59, line+1, 0x97 );
-	DrawValueRight( 12, line+2, dfTimeCount / 36000, 0, 0x1F, 0 );
-	DrawImage( 13, line+2, 0xD7 );
-        DrawValue( 15, line+2, dfTimeCount / 600 % 60, 0, 0x1F, 2 );
-        DrawImage( 27, line+2, 0xD7 );
-        DrawValue( 29, line+2, dfTimeCount / 10 % 60, 0, 0x1F, 2 );       
-
+	DrawValueRight( 8, line+2, dfTimeCount / 36000, 0, 0x1F, 0 );
+	DrawImage( 8, line+2, 0xD7 );
+        DrawValue( 10, line+2, dfTimeCount / 600 % 60, 0, 0x1F, 2 );
+        DrawImage( 22, line+2, 0xD7 );
+        DrawValue( 24, line+2, dfTimeCount / 10 % 60, 0, 0x1F, 2 );       
+	InvertRect( 0, 0, 63, 14 );  
+        DrawPixel( 0, 0, 0 );
+        DrawPixel( 63, 0, 0 );
+        DrawPixel( 0, 14, 0 );
+        DrawPixel( 63, 14, 0 );
 
 //			DrawImage( 57, 120, dfIsCelsius ? 0xC9 : 0xC8 );
 //	DrawValue( 27, line, gFlags.firing?AtoVolts:0, 2, 0x1F, 3 );
@@ -720,13 +729,15 @@ __myevic__ void DrawInfoLines()
         DrawStuff(50); //i do not know what that value means
 
         DrawAPTLines();;
-        DrawLine(0,15,64,15,1,1);
-        DrawLine(0,46,64,46,1,1);
-        DrawLine(0,63,64,63,1,1);
+//        DrawLine(0,15,64,15,1,1);
+ //       DrawLine(0,46,64,46,1,1);
+//        DrawLine(0,63,64,63,1,1);
         DrawLine(0,80,64,80,1,1);
         DrawLine(32,46,32,63,1,1);
         DrawLine(0,113,64,113,1,1); 
-        DrawLine(46,80,46,113,1,1);         
+        DrawLine(46,80,46,113,1,1); 
+      	InvertRect( 0, 47, 63, 61); //DrawFillRect( 0, 47, 63, 61, 2 );
+
 }
 
 
@@ -1196,15 +1207,15 @@ __myevic__ void DrawDigitClock( int line, int infoline )
             h = h >= 13 ? h - 12 : (h < 1 ? h + 12 : h); //24 -> 12
         }
         
-        if ( h < 10 ) x = 3;
+//        if ( h < 10 ) x = 3;
         
         if ( !dfStatus.timebig || infoline )
 	{ // small
-	 DrawValueRight( 19 - x, line, h, 0, 0x1F, 0 ); //2
-	 DrawImage( 20 - x, line, 0xDD );
-	 DrawValue( 24 - x, line, rtd.u32Minute, 0, 0x1F, 2 );
-	 DrawImage( 41 - x, line, 0xDD );
-	 DrawValue( 45 - x, line, rtd.u32Second, 0, 0x1F, 2 );
+	 DrawValueRight( 15 - x, line, h, 0, 0x1F, 0 ); //2
+	 DrawImage( 15 - x, line, 0xD7 );
+	 DrawValue( 17 - x, line, rtd.u32Minute, 0, 0x1F, 2 );
+	 DrawImage( 29 - x, line, 0xD7 );
+	 DrawValue( 31 - x, line, rtd.u32Second, 0, 0x1F, 2 );
                 
 		//DrawTime( 3, line, &rtd, 0x1F );
 		//DrawDate( 4, line+16, &rtd, 0x1F );
