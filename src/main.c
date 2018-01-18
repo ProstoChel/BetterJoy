@@ -1217,22 +1217,16 @@ __myevic__ void Main()
 			//if ( ShowProfNum )
 			//	--ShowProfNum;
 
-			if ( !( gFlags.firing && ISMODETC(dfMode) ) )
-			{
+
 				DrawScreen();
-			}
-                        
-			if ( gFlags.firing )
-                        {
-				if ( ISMODETC(dfMode) )
-				{
-					DrawScreen();
-				}
-			}
+
+
 			if ( KeyTicks < 5 )
 			{
 				KeyRepeat();
 			}
+			DrawScreen();
+
 		}
 
 		if ( gFlags.tick_5hz )
@@ -1293,8 +1287,6 @@ __myevic__ void Main()
                                 dfBattVolt = BatteryVoltage;
                                 ResetAllCounters();     
                         }
- 
-
 			else
                         {
                             //if ( AtoError == 2 ) 
