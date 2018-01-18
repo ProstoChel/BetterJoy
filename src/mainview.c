@@ -107,11 +107,11 @@ __myevic__ void DrawMode()
 				break;
 		}
 	}
-	InvertRect( 0, 0, 63, 14 );  
+	InvertRect( 0, 0, 63, 13 );  
         DrawPixel( 0, 0, 0 );
         DrawPixel( 63, 0, 0 );
-        DrawPixel( 0, 14, 0 );
-        DrawPixel( 63, 14, 0 );
+        DrawPixel( 0, 13, 0 );
+        DrawPixel( 63, 13, 0 );
 
 }
 
@@ -585,11 +585,11 @@ __myevic__ void ShowFireDuration( int line )
         DrawValue( 10, line+2, dfTimeCount / 600 % 60, 0, 0x1F, 2 );
         DrawImage( 22, line+2, 0xD7 );
         DrawValue( 24, line+2, dfTimeCount / 10 % 60, 0, 0x1F, 2 );       
-	InvertRect( 0, 0, 63, 14 );  
+	InvertRect( 0, 0, 63, 13 );  
         DrawPixel( 0, 0, 0 );
         DrawPixel( 63, 0, 0 );
-        DrawPixel( 0, 14, 0 );
-        DrawPixel( 63, 14, 0 );
+        DrawPixel( 0, 13, 0 );
+        DrawPixel( 63, 13, 0 );
 
 //			DrawImage( 57, 120, dfIsCelsius ? 0xC9 : 0xC8 );
 //	DrawValue( 27, line, gFlags.firing?AtoVolts:0, 2, 0x1F, 3 );
