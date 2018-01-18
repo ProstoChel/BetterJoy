@@ -46,6 +46,10 @@ Some changings from original Sur_Myevic
 -Optimized control
 -Fire screen counter changings (it keeps screen alive)
 
+180118 20:23
+Pretty battery, board temp in the bottom.
+
+
 180118 15:15
 Finally, I won bug with attached USB screen had some trouble and make improved UI.
 
