@@ -727,17 +727,17 @@ __myevic__ void DrawInfoLines()
 	}
 
 	DrawCoilLine( 67 );
-        DrawStuff(50); //i do not know what that value means
 
         DrawAPTLines();;
+        DrawStuff(50); //i do not know what that value means
 //        DrawLine(0,15,64,15,1,1);
  //       DrawLine(0,46,64,46,1,1);
 //        DrawLine(0,63,64,63,1,1);
-        DrawLine(0,80,64,80,1,1);
+        DrawLine(0,80,46,80,1,1);
 //        DrawLine(32,46,32,63,1,1);
 //        DrawFillRect( 31, 47, 33, 61, 1);
-        DrawLine(0,113,64,113,1,1); 
-        DrawLine(46,80,46,113,1,1); 
+        DrawLine(0,113,46,113,1,1); 
+//        DrawLine(46,80,46,113,1,1); 
       	InvertRect( 0, 48, 29, 61); //DrawFillRect( 0, 47, 63, 61, 2 );
       	InvertRect( 34, 48, 63, 61); //DrawFillRect( 0, 47, 63, 61, 2 );
         DrawPixel (0,48,0);
@@ -748,7 +748,7 @@ __myevic__ void DrawInfoLines()
         DrawPixel (34,61,0);
         DrawPixel (63,48,0);
         DrawPixel (63,61,0);
-        
+        DrawFillRect(53,82,59,83,1);       
 
 }
 
@@ -1090,6 +1090,7 @@ __myevic__ void ShowMainView()
 //		DrawHLineDots( 0, 113, 63, 1 ); //second h-line
 
 		ShowBattery();
+                    InvertRect(49,84,63,126); //inversion battery
 
 		if ( Screen == 2 || EditModeTimer )
 		{
@@ -1259,15 +1260,15 @@ __myevic__ void DrawStuff( int line, int infoline )
                         if ( ISSINFJ200 )
                         {
                             t = dfIsCelsius ? AkkuTemp : CelsiusToF( AkkuTemp );
-                            DrawValue( 50, 84, t, 0, 0x1F, 0 );
-                            //DrawImage( 54, 90, dfIsCelsius ? 0xC9 : 0xC8 );
+                            DrawValueRight( 13, 117, t, 0, 0x1F, 0 );
                         }
                         else
                         
                         t = dfIsCelsius ? BoardTemp : CelsiusToF( BoardTemp );
-			DrawValue( 50, 84, t, 0, 0x1F, t>99?3:2 );
+			DrawValueRight( 13, 117, t, 0, 0x1F, t>99?3:2 );
+                        DrawImage( 13, 117+2, dfIsCelsius ? 0xC9 : 0xC8 );
                         
-			DrawValue( 50, 100, BatteryPercent, 0, 0x1F, 0 );
+/*			DrawValue( 50, 100, BatteryPercent, 0, 0x1F, 0 );*/
 
                         
         if ( gFlags.battery_charging )

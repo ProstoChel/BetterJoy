@@ -669,7 +669,11 @@ __myevic__ void ShowBattery()
 		for ( int i = 0 ; i < NumBatteries ; ++i )
 		{
 //BatteryTenthAll[i]
-			DrawValue(  2 + 24 * ( i), 117, BatteryVoltsToPercent( BattVolts[i] ), 0, 0x1F, 2 );
+			uint16_t bv = gFlags.firing ? RTBVolts[i] : BattVolts[i];                    
+			DrawValue(  51, 87 + 14 * ( i), BatteryVoltsToPercent( bv ), 0, 0x1F, 2 );
+
+
+//			DrawValue(  2 + 24 * ( i), 117, BatteryVoltsToPercent( BattVolts[i] ), 0, 0x1F, 2 );
 ///			DrawValue(  2 + 21 * ( i), 116, BattVolts[i], 2, 0x1F, 3 );
 	//		DrawImage( 23 + 32 * ( i & 1 ), 100 + ( i >> 1 ) * 12, 0x7D );
 		}
