@@ -733,7 +733,7 @@ __myevic__ void ResetDataFlash()
 //	dfMillis = 0;
 //	dfProfile = 0;
     //    dfStatus.offmodclock = 0;
-        dfFireScrDuration = 10;
+        dfFireScrDuration = 5;
         Object3D = 7;
     //    dfMaxPower = 0;
     //    dfMaxVolts = 0;

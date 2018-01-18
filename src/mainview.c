@@ -107,11 +107,12 @@ __myevic__ void DrawMode()
 				break;
 		}
 	}
-        InvertRect( 0, 2, 63, 13 );  
-        DrawPixel( 0, 2, 0 );
-        DrawPixel( 63, 2, 0 );
-        DrawPixel( 0, 13, 0 );
-        DrawPixel( 63, 13, 0 );
+	InvertRect( 0, 0, 63, 14 );  
+        DrawPixel( 0, 0, 0 );
+        DrawPixel( 63, 0, 0 );
+        DrawPixel( 0, 14, 0 );
+        DrawPixel( 63, 14, 0 );
+
 }
 
 //=============================================================================
@@ -241,15 +242,15 @@ __myevic__ void DrawVoltsLine( int volts, int line )
         
         if ( dfStatus.vvlite && dfMode == 4 )
         {
-            DrawImage( 23, y+yoff, 0x73 );           } 
+            DrawImage( 22, y+yoff, 0x73 );           } 
         else
         {
 //            DrawString( String_VOLT_s, 0, y+yoff );
 
-              DrawImage( 23, y+yoff, 0xB1 );
+              DrawImage( 22, y+yoff, 0xB1 );
         }
 	// for real bypass if ( volts > MaxVolts ) volts = MaxVolts;
-            DrawValueRight( 23, y, volts, 2, fset, 3 );
+            DrawValueRight( 22, y, volts, 2, fset, 3 );
 
 //        if ( dfUIVersion == 0 )
 //            DrawImage( 21, y+yoff, 0xB1 );
@@ -733,10 +734,21 @@ __myevic__ void DrawInfoLines()
  //       DrawLine(0,46,64,46,1,1);
 //        DrawLine(0,63,64,63,1,1);
         DrawLine(0,80,64,80,1,1);
-        DrawLine(32,46,32,63,1,1);
+//        DrawLine(32,46,32,63,1,1);
+//        DrawFillRect( 31, 47, 33, 61, 1);
         DrawLine(0,113,64,113,1,1); 
         DrawLine(46,80,46,113,1,1); 
-      	InvertRect( 0, 47, 63, 61); //DrawFillRect( 0, 47, 63, 61, 2 );
+      	InvertRect( 0, 48, 29, 61); //DrawFillRect( 0, 47, 63, 61, 2 );
+      	InvertRect( 34, 48, 63, 61); //DrawFillRect( 0, 47, 63, 61, 2 );
+        DrawPixel (0,48,0);
+        DrawPixel (0,61,0);
+        DrawPixel (29,48,0);
+        DrawPixel (29,61,0);
+        DrawPixel (34,48,0);
+        DrawPixel (34,61,0);
+        DrawPixel (63,48,0);
+        DrawPixel (63,61,0);
+        
 
 }
 
@@ -1261,12 +1273,12 @@ __myevic__ void DrawStuff( int line, int infoline )
         if ( gFlags.battery_charging )
                     {
 //                    	DrawImage( gFlags.firing ? String_AMP_s : String_UCH_s, 0, fset );
-                        if ( gFlags.firing ) DrawValueRight( 55, 50, AtoCurrent, 1, 0x1F, 3 );    
-                        else DrawValueRight( 57, 50, ChargeCurrent / 10, 2, 0x1F, 3 ); 
+                        if ( gFlags.firing ) DrawValueRight( 56, 50, AtoCurrent, 1, 0x1F, 3 );    
+                        else DrawValueRight( 56, 50, ChargeCurrent / 10, 2, 0x1F, 3 ); 
                     } else {
 //			DrawString( String_AMP_s, 0, line+6 );
-			DrawValueRight( 57, 50, ( gFlags.firing ) ? AtoCurrent : 0, 1, 0x1F, 3 );                        
+			DrawValueRight( 56, 50, ( gFlags.firing ) ? AtoCurrent : 0, 1, 0x1F, 3 );                        
                     }
-			DrawImage( 57, 52, 0x9C );
+			DrawImage( 56, 52, 0x9C );
  
 }
