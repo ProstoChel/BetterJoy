@@ -719,11 +719,14 @@ __myevic__ void GetUserInput()
 		}
 */
 	}
-	else if ( KeyPressTime == 300 )
+	else if ( KeyPressTime == 200 )
 	{
 		if ( UserInputs == 5 ) // Fire + Right button very LONG
 		{
-			Event = EVENT_POWER_CURVE;
+                    dfStatus2.swap_mp ^= 1;
+        	    DrawStringCentered( String_SwapMP, 64 );
+
+			//Event = EVENT_POWER_CURVE;
 		}
 	}
 	else if ( ( KeyPressTime & 0x8000 ) || ( KeyPressTime & 0x7fff ) > 200 )

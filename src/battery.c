@@ -29,7 +29,7 @@ const Battery_t BatteryCuboMini =
 		{  90, 402 },
 		{ 100, 410 }
 	},
-	280,
+	270,
 	25,
 	20
 };
@@ -51,7 +51,7 @@ const Battery_t BatteryRXMini =
 		{  90, 402 },
 		{ 100, 410 }
 	},
-	280,
+	270,
 	25,
 	20
 };
@@ -75,7 +75,7 @@ const Battery_t const myCustom[] =
 			{  90, 380 },
 			{ 100, 418 }
 		},
-		280,
+		270,
 		20,
 		25
 	}
@@ -87,19 +87,19 @@ const Battery_t const Batteries[] =
 	{
 		String_GEN,
 		{
-			{   0, 310 },
-			{  10, 330 },
-			{  20, 342 },
-			{  30, 350 },
-			{  40, 358 },
-			{  50, 363 },
-			{  60, 368 },
-			{  70, 379 },
-			{  80, 389 },
-			{  90, 400 },
-			{ 100, 410 }
+			{   0, 270 },
+			{   1, 310 },                                
+			{  15, 340 },
+			{  23, 352 },
+			{  54, 381 },
+			{  68, 391 },
+			{  75, 400 },
+			{  81, 403 },
+			{  94, 408 },
+			{  97, 411 },
+			{  99, 420 },
 		},
-		280,
+		270,
 		25,
 		20
 	},
@@ -117,10 +117,9 @@ const Battery_t const Batteries[] =
 			{  70, 391 },
 			{  84, 405 },
 			{  93, 409 },
-			{  97, 417 },
-			{ 100, 419 }
+			{ 99, 419 }
 		},
-		280,
+		270,
 		20,
 		25
 	},
@@ -138,10 +137,9 @@ const Battery_t const Batteries[] =
 			{  79, 401 },
 			{  96, 411 },
 			{  98, 414 },
-			{  99, 417 },
-			{ 100, 420 }
+			{ 99, 420 }
 		},
-		280,
+		270,
 		20,
 		25
 	},
@@ -163,7 +161,7 @@ const Battery_t const Batteries[] =
 			{  99, 418 },
 			{ 100, 420 }
 		},
-		280,
+		270,
 		20,
 		25
 	},
@@ -183,9 +181,8 @@ const Battery_t const Batteries[] =
 			{  94, 408 },
 			{  97, 411 },
 			{  99, 416 },
-			{ 100, 420 }
 		},
-		280,
+		270,
 		20,
 		25
 	},
@@ -207,7 +204,7 @@ const Battery_t const Batteries[] =
 			{  99, 419 },
 			{ 100, 421 }
 		},
-		280,
+		270,
 		20,
 		30
 	},
@@ -227,9 +224,8 @@ const Battery_t const Batteries[] =
 			{  79, 396 },
 			{  95, 411 },
 			{  99, 418 },
-			{ 100, 420 }
 		},
-		280,
+		270,
 		20,
 		30
 	},
@@ -251,7 +247,7 @@ const Battery_t const Batteries[] =
 			{  99, 416 }, 
 			{ 100, 420 } 
 		},
-		280,
+		270,
 		20,
 		25
 	}
@@ -566,7 +562,7 @@ __myevic__ void NewBatteryVoltage()
                 // gFlags.nbcr  dfStatus.nbrc
                 //if ( dfStatus.nbrc ) 
                 //if ( ( BatteryVoltage > 255 ) && ( dfBattVolt > BatteryVoltage ) ) dfBattVolt = BatteryVoltage;
-                if ( BatteryVoltage > 280 && ( ( ++BatSmplCnt > 2 && dfBattVolt > BatteryVoltage ) || !dfStatus.nbrc ) ) 
+                if ( BatteryVoltage > 270 && ( ( ++BatSmplCnt > 2 && dfBattVolt > BatteryVoltage ) || !dfStatus.nbrc ) ) 
                 //if ( BatteryVoltage > 280 && ( ( dfBattVolt > BatteryVoltage ) || !dfStatus.nbrc ) ) 
                 {
                     dfBattVolt = BatteryVoltage;
@@ -2098,7 +2094,7 @@ __myevic__ int CheckCustomBattery()
 		if ( CustomBattery.V2P[i].percent > 100 )
 			return 0;
 
-		if ( CustomBattery.V2P[i].voltage < 280 || CustomBattery.V2P[i].voltage > 423 )
+		if ( CustomBattery.V2P[i].voltage < 270 || CustomBattery.V2P[i].voltage > 423 )
 			return 0;
 
 		if (( i > 0 ) && ( CustomBattery.V2P[i].percent <= CustomBattery.V2P[i-1].percent ))

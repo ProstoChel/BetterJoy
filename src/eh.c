@@ -1429,11 +1429,11 @@ __myevic__ void EventHandler()
                                                 case 6:       
                                                         if ( NumBatteries > 1 )
                                                         {
-                                                            if ( ++dfBattLine > 1 ) dfBattLine = 1; //3, 0
+                                                            if ( ++dfBattLine > 2 ) dfBattLine = 1; //3, 0
                                                         }
                                                         else
                                                         {
-                                                            if ( ++dfBattLine > 1 ) dfBattLine = 1; //2, 0
+                                                            if ( ++dfBattLine > 2 ) dfBattLine = 1; //2, 0
                                                         }
 /*
 							if ( !dfStatus.battpc )

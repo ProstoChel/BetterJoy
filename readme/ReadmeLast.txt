@@ -46,6 +46,11 @@ Some changings from original Sur_Myevic
 -Optimized control
 -Fire screen counter changings (it keeps screen alive)
 
+160218 21:12
+99 percent max for better viewing
+2.7 volt min
+Other fixes
+
 180118 20:23
 Pretty battery, board temp in the bottom.
 
