@@ -289,25 +289,25 @@ __myevic__ void DrawCoilLine( int line )
 			rez = AtoRezMilli;
             	if ( Set_NewRez_dfRez || !AtoRez )
 		{
-			rez2 = AtoRez;
+			rez2 = AtoRezMilli;
 		}
 		else
 		{
-			rez2 = dfResistance;
+			rez2 = dfResistance * 10 + RezMillis; 
 		}
         if (rez<1000){
-        DrawImage( 5, line+2, 0xF4); //dot
-        DrawValue( 8, line, rez, 0, 0x1F, 3 );
+        DrawImage( 2, line+2, 0xF4); //dot
+        DrawValue( 5, line, rez, 0, 0x1F, 3 );
         }
         else
         {DrawValue( 1, line, rez, 3, 0x1F, 4 );}
 
-        if (rez2<100)    
-        {DrawValue( 47, line, rez2, 0, 0x1F, 2 );
-        DrawImage( 44, line+2, 0xF4 ); //dot}
+        if (rez2<1000)    
+        {DrawValue( 45, line, rez2, 0, 0x1F, 3 );
+        DrawImage( 42, line+2, 0xF4 ); //dot}
         }        
         else 
-        {DrawValue( 40, line, rez2, 2, 0x1F, 3 );}
+        {DrawValue( 40, line, rez2, 3, 0x1F, 4 );}
                    
         DrawImage( 29, line+2, 0xC0 ); //ohm
 //        If((rez<1000) && (rez2<1000))

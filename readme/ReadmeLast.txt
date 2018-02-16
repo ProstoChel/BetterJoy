@@ -47,6 +47,9 @@ Some changings from original Sur_Myevic
 -Fire screen counter changings (it keeps screen alive)
 
 160218 21:12
+Right resistance has 3 signs after point (base resistance)
+
+160218 21:12
 99 percent max for better viewing
 2.7 volt min
 Other fixes
