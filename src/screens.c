@@ -921,15 +921,12 @@ __myevic__ void ShowVersion()
 {
 	uint8_t buf[12];
 
-        DrawStringCentered( String_SME, 13 );
 	DrawStringCentered( String_myevic, 24 );
 
 	DrawStringCentered( String_Build, 44 );
 	Value2Str( buf, __BUILD1, 0, 0x1F, 0 );
 	DrawStringCentered( buf, 58 );
 
-	DrawStringCentered( String_Version, 78 );
-	DrawValue( 11, 92, FWVERSION, 2, 0x29, 3 ); //0x48
         
         uint8_t strbuf[20];
         convert_string1( strbuf, BoxName );
