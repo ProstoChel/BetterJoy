@@ -242,6 +242,9 @@ __myevic__ void SetClicksAction( uint8_t num )
                                                 case CLICK_ACTION_MENU:
                                                         FireClicksEvent = EVENT_ENTER_MENUS;
 							break;
+                                                case CLICK_ACTION_REZRESET:
+                                                        SwitchRezLock( 0 );
+							break;
 					}
 }
 
@@ -548,7 +551,7 @@ __myevic__ void GetUserInput()
 			}                                              
 		}
 	}
-	else if ( KeyPressTime == 20 )
+	else if ( KeyPressTime == 40 )
 	{
 		if ( UserInputs == 1 )
 		{
@@ -614,8 +617,10 @@ __myevic__ void GetUserInput()
 			}
 			else
 			{
-                                gFlags.user_idle = 0;
-				Event = 18;	// EVENT_PROFILE_MENU profile selection
+                             ResetRez( );
+                             SetScreen( 1, 15 );
+//                                    DisplaySetContrast(255);
+//	DrawFillRect( 0, 0, 64, 128, 1 );
 			}
 		}
 		else if ( UserInputs == 6 )
@@ -642,7 +647,13 @@ __myevic__ void GetUserInput()
 					Event = 4;	// key (un)lock
 				}
 			}
-		}                
+		}
+                else if ( UserInputs == 7 ) //all 3 buttons
+                {
+                        gFlags.user_idle = 0;
+			Event = 18;	// flip display                    
+
+                    }                
         }
 	else if ( KeyPressTime == 70 )
 	{
@@ -721,7 +732,7 @@ __myevic__ void GetUserInput()
 	}
 	else if ( KeyPressTime == 200 )
 	{
-		if ( UserInputs == 5 ) // Fire + Right button very LONG
+		if ( UserInputs == 7 ) // all three very LONG
 		{
                     dfStatus2.swap_mp ^= 1;
         	    DrawStringCentered( String_SwapMP, 64 );

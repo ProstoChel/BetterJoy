@@ -1503,7 +1503,7 @@ __myevic__ void BatteryChargeDual()
 									}
 									else
 									{
-										ChargerTarget = GetMaxCharge( 500 ); //500;
+										ChargerTarget = GetMaxCharge( 1000 ); //500;
 										USBMaxLoad = 0;
 									}
 								}
@@ -1934,9 +1934,9 @@ __myevic__ void BatteryCharge()
 							if ( USBVolts <= 420 )
 							{
 								USBMaxLoad = 0;
-								ChargerTarget = GetMaxCharge( 500 ); //500;
+								ChargerTarget = GetMaxCharge( 1000 ); //500;
 							}
-							else
+							else    
 							{
 								ChargerTarget = GetMaxCharge( 1000 ); //1000;
 							}

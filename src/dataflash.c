@@ -68,6 +68,7 @@ const char pid_sinp80   [8]	__PIDATTR__	= { 'J','0','0','1', 1, 0, 0, 0 };
 const char pid_sinfj200 [8]	__PIDATTR__	= { 'J','0','0','9', 1, 0, 0, 0 };
 const char pid_rx2      [8]	__PIDATTR__	= { 'J','0','1','2', 1, 0, 0, 0 };
 const char pid_invoke   [8]	__PIDATTR__	= { 'M','0','9','5', 1, 0, 0, 0 };
+const char pid_rx217    [8]	__PIDATTR__	= { 'J','0','7','5', 1, 0, 0, 0 };
 
 #define PID_SCRAMBLE 0x12345678UL
 #define MAKEPID(p) ((((p)[0])|((p)[1]<<8)|((p)[2]<<16)|((p)[3]<<24))^PID_SCRAMBLE)
@@ -103,6 +104,7 @@ const char pid_invoke   [8]	__PIDATTR__	= { 'M','0','9','5', 1, 0, 0, 0 };
 #define PID_SINFJ200	MAKEPID(pid_sinfj200)
 #define PID_RX2         MAKEPID(pid_rx2)
 #define PID_INVOKE      MAKEPID(pid_invoke)
+#define PID_RX217       MAKEPID(pid_rx217)
 
 #define HWV_VTCMINI	MAKEHWV(pid_vtcmini)
 #define HWV_VTWOMINI	MAKEHWV(pid_vtwomini)
@@ -132,6 +134,8 @@ const char pid_invoke   [8]	__PIDATTR__	= { 'M','0','9','5', 1, 0, 0, 0 };
 #define HWV_SINFJ200	MAKEHWV(pid_sinfj200)
 #define HWV_RX2         MAKEHWV(pid_rx2)
 #define HWV_INVOKE      MAKEHWV(pid_invoke)
+#define HWV_RX217       MAKEHWV(pid_rx217)
+#define HWV_RX217       MAKEHWV(pid_rx217)
 
 
 //=========================================================================
@@ -180,7 +184,7 @@ __myevic__ void SetProductID()
 			DFMagicNumber = 0x36;
 			BoxModel = BOX_VTCMINI;
 			X32Off = 1;
-                        BoxName = "VTC mini";
+                        BoxName = "VTC m";
 			break;
 		}
 		else if ( u32Data == PID_VTWOMINI )

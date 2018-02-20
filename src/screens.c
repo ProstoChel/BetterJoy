@@ -692,7 +692,7 @@ __myevic__ void ShowBattery()
 		if ( gFlags.draw_battery )
 		{
 
-			if ( dfBattLine == 0 )
+/*			if ( dfBattLine == 0 )
 			{
 				DrawImage( 8, 116, 0xC4 ); //big empty
 			}
@@ -700,7 +700,7 @@ __myevic__ void ShowBattery()
                         {
                                 DrawImage( 1, 116, 0xE2 ); //2 small empty
                                 DrawImage( 33, 116, 0xE2 );    
-                        }
+                        }*/
 		}
 	}
 	else if ( gFlags.draw_battery_charging && gFlags.battery_charging )
@@ -736,7 +736,7 @@ __myevic__ void ShowBattery()
 				DrawFillRectLines( 10, 121, (4 * BatteryTenth + 9), 125, 1 );
 			}
 		}
-		else if ( dfBattLine == 3 )
+/*		else if ( dfBattLine == 3 )
 		{
                         DrawImage( 1, 116, 0xE2 ); //2 small empty
                         DrawImage( 33, 116, 0xE2 ); 
@@ -774,7 +774,7 @@ __myevic__ void ShowBattery()
                                 }
                             }				
 			}
-		}                
+		}         */       
 	}
 }
 

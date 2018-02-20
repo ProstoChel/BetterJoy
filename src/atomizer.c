@@ -19,6 +19,7 @@ uint32_t	AtoVoltsADC;
 uint32_t	AtoVolts;
 uint32_t	TargetVolts;
 uint32_t	AtoRezMilli;
+uint32_t	AtoRezMilliMin; //min while puff
 uint32_t	AtoMinVolts;
 uint32_t	AtoMaxVolts;
 uint32_t	AtoMinPower;
@@ -1721,7 +1722,32 @@ __myevic__ void ProbeAtomizer()
 		if ( !dfStatus.chkmodeoff ) gFlags.check_mode = 1;
 	}
 }
+//=========================================================================
+__myevic__ uint16_t ResetRez()
+{
+    //ISMODETC(m) ((m)<=3)
+    //ISMODEVW(m) (((m)==4)||((m)==6))
+    //ISMODEBY(m) ((m)==5)
 
+        //if ( AtoRez )
+        //{
+		dfResistance = AtoRezMilli / 10; //=real //AtoRez;
+		RezMillis = AtoMillis;
+		//*prez = dfResistance;
+                
+                if ( ISMODETC(dfMode) )
+                {
+                    dfMillis &= ~( 0xf << ( dfMode << 2 ) );
+                    dfMillis |= RezMillis << ( dfMode << 2 );
+                }
+                else
+                {
+                    dfVWVolts = GetAtoVWVolts( dfPower, dfResistance ); //AtoRez
+                    dfVVLockedVolt = dfVWVolts;
+                }
+        //}
+        return dfResistance;
+}
 
 //=========================================================================
 //----- (000088B4) --------------------------------------------------------
@@ -2012,9 +2038,7 @@ __myevic__ void ResetResistance()
 		ProbeAtomizer();
 		WaitOnTMR2( 10 );
 	}
-                                AtoRez = AtoRezMilli / 10;
                                 AtoMillis = AtoRezMilli % 10;
-                                dfResistance = AtoRez;
 				RezMillis = AtoMillis;
 				
                                 LastAtoRez = AtoRez;

@@ -128,13 +128,13 @@ __myevic__ void DrawPwrLine( int pwr, int line )
         x = 55;
         yoff = 2;
         
-        if ( dfUIVersion == 1 )
+/*        if ( dfUIVersion == 1 )
         {
             fset = 0x29;
             y += 3;
             x = 63;
             yoff = 8;
-        }
+        }*/
         
  //       DrawString( String_PWR_s, 0, y+yoff );
        if ( pwr < 100 ) // < 100 w//pw <10
@@ -188,13 +188,13 @@ __myevic__ void DrawTempLine( int line )
         x = 55;
         yoff = 2;
         
-        if ( dfUIVersion == 1 )
+/*        if ( dfUIVersion == 1 )
         {
             fset = 0x29;
             y += 3;
             x = 63;
             yoff = 8;
-        }
+        }*/
         
 //        DrawString( String_TEMP_s, 0, y+yoff );
 
@@ -232,13 +232,7 @@ __myevic__ void DrawVoltsLine( int volts, int line )
         x = 55;
         yoff = 2;
         
-        if ( dfUIVersion == 1 )
-        {
-            fset = 0x29;
-            y += 3;
-            x = 63;
-            yoff = 8;
-        }
+
         
         if ( dfStatus.vvlite && dfMode == 4 )
         {
@@ -274,13 +268,7 @@ __myevic__ void DrawCoilLine( int line )
         x = 55;
         yoff = 2;
         
-        if ( dfUIVersion == 1 )
-        {
-            fset = 0x29;
-            y += 10;
-            x = 63;
-            yoff = 8;
-        }
+
         
 //                DrawString( String_COIL_s, 0, y+yoff );
 
@@ -318,14 +306,10 @@ __myevic__ void DrawCoilLine( int line )
 	||	(( dfMode == 2 ) && ( dfRezLockedSS ))
 	||	(( dfMode == 3 ) && ( dfRezLockedTCR )))
 	{
-            if ( dfUIVersion == 1 )
-            {
-                DrawImage( 29, line+2, 0xC3 ); //lock 9
-            }
-            else
-            {    
+
+                
 		DrawImage( 29, line+2, 0xC3 ); //lock
-            }
+            
 	}
 
 
@@ -349,9 +333,9 @@ __myevic__ void DrawAPTLines()
 {       
     // APT - line 4, APT3 - line 3 (i)=1
     int count;
-    if ( dfUIVersion == 1 )
+/*    if ( dfUIVersion == 1 )
         count = 1;
-    else
+    else*/
         count = 2;
     
     for ( int i = 0 ; i < count ; ++i )
@@ -1254,8 +1238,9 @@ __myevic__ void DrawDigitClock( int line, int infoline )
         if ( !infoline )
                 DrawDate( 4, line+y, &rtd, 0x1F ); //and DOW
 }
-__myevic__ void DrawStuff( int line, int infoline )
+__myevic__ void DrawStuff( )
 {
+    if ( dfUIVersion == 0 ){
         int t;
                         if ( ISSINFJ200 )
                         {
@@ -1268,18 +1253,22 @@ __myevic__ void DrawStuff( int line, int infoline )
 			DrawValueRight( 13, 117, t, 0, 0x1F, t>99?3:2 );
                         DrawImage( 13, 117+2, dfIsCelsius ? 0xC9 : 0xC8 );
                         
+                        DrawValue( 24, 117, gFlags.firing?RTBattVolts:BatteryVoltage, 2, 0x1F, 3 );
 /*			DrawValue( 50, 100, BatteryPercent, 0, 0x1F, 0 );*/
 
                         
         if ( gFlags.battery_charging )
                     {
+                        DrawImage( 57, 52, 0xCB );
 //                    	DrawImage( gFlags.firing ? String_AMP_s : String_UCH_s, 0, fset );
-                        if ( gFlags.firing ) DrawValueRight( 56, 50, AtoCurrent, 1, 0x1F, 3 );    
+                        if ( gFlags.firing ) {DrawValueRight( 56, 50, AtoCurrent, 1, 0x1F, 3 );   
+                        DrawImage( 56, 52, 0x68 );}
                         else DrawValueRight( 56, 50, ChargeCurrent / 10, 2, 0x1F, 3 ); 
+                        
                     } else {
 //			DrawString( String_AMP_s, 0, line+6 );
-			DrawValueRight( 56, 50, ( gFlags.firing ) ? AtoCurrent : 0, 1, 0x1F, 3 );                        
+			DrawValueRight( 56, 50, ( gFlags.firing ) ? AtoCurrent : 0, 1, 0x1F, 3 );
+                        DrawImage( 57, 52, 0x68 );                        
                     }
-			DrawImage( 56, 52, 0x9C );
- 
+    }
 }

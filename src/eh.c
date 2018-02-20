@@ -935,7 +935,7 @@ __myevic__ void EventHandler()
                         
 			dfStatus.flipped ^= 1;
 			InitDisplay();
-                        SetScreen( 1, 2 );
+                        SetScreen( 1, 15 );
 			//gFlags.refresh_display = 1;
 			//Screen = 1;
 			//ScreenDuration = 2;
@@ -1134,7 +1134,7 @@ __myevic__ void EventHandler()
 				return;
                         
 			dfStealthOn = ( dfStealthOn == 0 );
-//                        if ( ++dfStealthOn > 1 ) 
+//                        if ( ++1 > 1 ) 
 //                            dfStealthOn = 0; // 2 fire contrast
                         
                         SetScreen( 40, 2 );
@@ -1413,7 +1413,7 @@ __myevic__ void EventHandler()
 							break;
 
 						case 3:
-							SwitchRezLock();
+							SwitchRezLock(1);
 							break;
 
                                                 case 4:
