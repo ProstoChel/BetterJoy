@@ -46,6 +46,16 @@ Some changings from original Sur_Myevic
 -Optimized control
 -Fire screen counter changings (it keeps screen alive)
 
+
+200218 18:18
+Charging icon in Amp place
+Weakest bat voltage in the midle bottom 
+Bigger C and F icon for temp
+-Fire (long) - update resistance
+-+Fire (long) rotates your screen
+-+Fire (longer) swap +- buttons
+
+
 160218 21:12
 Right resistance has 3 signs after point (base resistance)
 

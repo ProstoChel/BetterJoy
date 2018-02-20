@@ -636,7 +636,7 @@ __myevic__ void ChargeBalance()
 			{
 				uint16_t bv = BattVolts[i];
 
-				if ( bv <= 250 || bv < BatteryVoltage + 3 )
+				if ( bv <= 200 || bv < BatteryVoltage + 3 )
 					BBBits &= ~( 1 << i );
 				else
 					BBBits |= ( 1 << i );
@@ -1718,7 +1718,7 @@ __myevic__ void BatteryCharge()
 			}
 		}
 	}
-	else if ( ( ISRX23 || ISGEN3 ) && BattVolts[0] >= 250 && BattVolts[1] >= 250 && BattVolts[2] < 20 )
+	else if ( ( ISRX23 || ISGEN3 ) && BattVolts[0] >= 200 && BattVolts[1] >= 200 && BattVolts[2] < 20 )
 	{
 		NumBatteries = 2;
 		NewBatteryData();

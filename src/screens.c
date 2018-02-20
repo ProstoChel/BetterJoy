@@ -582,11 +582,11 @@ __myevic__ void ShowContrast()
 	DrawString( String_Contrast, 4, 6 );
 	DrawHLine( 0, 16, 63, 1 );
 
-	pc = ( ( 100 * dfc ) / 255 );
-	nd = ( pc < 100 ? pc < 10 ? 1 : 2 : 3 );
-	x = ( 64 - ( 6 * nd + 9 )) / 2;
-	DrawValue( x, 20, pc, 0, 0x0B, 0 );
-	DrawImage( x + 6 * nd, 20, 0xC2 );
+	pc = ( dfc / 85 + 1 );
+//	nd = ( pc < 100 ? pc < 10 ? 1 : 2 : 3 );
+//	x = ( 64 - ( 6 * nd + 9 )) / 2;
+	DrawValue( 30, 20, pc, 0, 0x0B, 0 );
+//	DrawImage( x + 6 * nd, 20, 0xC2 );
 
 	DrawFillRect( 0, 32, 63, 44, 1 );
 	DrawFillRect( 1, 33, 62, 43, 0 );
