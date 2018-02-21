@@ -47,6 +47,10 @@ Some changings from original Sur_Myevic
 -Optimized control
 -Fire screen counter changings (it keeps screen alive)
 
+
+220218 1:19
+USB voltage in TCR mode. Test
+
 210218 20:26
 6 digit fixed.
 Honestly, there is a lot of fixes which was not logged, sorry :)
