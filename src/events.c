@@ -625,14 +625,8 @@ __myevic__ void GetUserInput()
 		}
 		else if ( UserInputs == 6 )
 		{
-			if ( dfStatus.off )
-			{
-				Event = 34;	// battery voltage screen
-			}
-			else
-			{
+
 				Event = 6;	// stealth on/off
-			}
 		}   
 		else if ( UserInputs == 4 ) //left + right
 		{
@@ -1102,7 +1096,7 @@ __myevic__ int EvtMinusButton()
                     {
 			if ( dfContrast2 >= 85 ) dfContrast2 -= 85;
 			else dfContrast2 = 255;
-                        //DisplaySetContrast( dfContrast2 );                       
+                        DisplaySetContrast( dfContrast2 );                       
                     }
                     else
                     {

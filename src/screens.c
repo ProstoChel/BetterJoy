@@ -179,9 +179,9 @@ __myevic__ void DrawScreen()
 				ShowNewCoil();
 				break;
 
-			case 54: // Battery Voltage
+/*			case 54: // Battery Voltage
 				ShowBattVolts();
-				break;
+				break;*/
 
 			case 55: // Imbalanced Batteries
 				ShowImbBatts();
@@ -884,7 +884,7 @@ __myevic__ void ShowBatCharging()
 
 //=========================================================================
 //----- (0000683C) --------------------------------------------------------
-__myevic__ void ShowBattVolts()
+/*__myevic__ void ShowBattVolts()
 {
 	if ( NumBatteries > 1 )
 	{
@@ -901,7 +901,7 @@ __myevic__ void ShowBattVolts()
 		DrawValue( 6, 102, BatteryVoltage, 2, 0x29, 3 );
 		DrawImage( 46, 102, 0xB8 );
 	}
-}
+}*/
 
 
 //=========================================================================
