@@ -1,7 +1,8 @@
 Finally, we have readme and version history. Yeah, you can use github to get changelog, but it's not popular. This is online document
 You always can discuss BetterJoy in TG https://t.me/betterjoy and get some answers
 
-If you like BetterJoy, you can support project with this https://www.paypal.me/betterjoy ;)
+If you like BetterJoy, you can support project with this 
+https://www.paypal.me/betterjoy ;)
 It's really hard to develop, you can check it. Also you can help with your code, it will be great. Just follow github.com/ProstoChel/BetterJoy
 
 We work on:
@@ -46,6 +47,9 @@ Some changings from original Sur_Myevic
 -Optimized control
 -Fire screen counter changings (it keeps screen alive)
 
+210218 20:26
+6 digit fixed.
+Honestly, there is a lot of fixes which was not logged, sorry :)
 
 200218 18:18
 Charging icon in Amp place
