@@ -254,6 +254,12 @@ __myevic__ void DrawScreen()
 			case 107:
 				ShowPowerCurve();
 				break;
+			case 108:
+                                
+                                DisplaySetContrast(255);
+				ShowFlash();
+				break;
+                                                
                                 
                         case EVENT_SET_JOULES: //scr = event
 				ShowSetJoules();
@@ -310,10 +316,8 @@ __myevic__ void DrawScreen()
 		gFlags.fading = 0;
 	}
 
-	if (( gFlags.firing ) && ISMODETC(dfMode))
-		TenthOfSecs += 1;
-	else
-		TenthOfSecs += 1;
+	if (gFlags.firing)
+            TenthOfSecs += 1;
 
 	if ( TenthOfSecs < 10 )
 		return;
@@ -1127,6 +1131,14 @@ __myevic__ void ShowGoodBye()
     //DrawStringCentered( String_Off, 63 );
     DrawStringCentered( ScreenDuration > 1 ? String_On : String_Off, 63 );
     gFlags.refresh_display = 1;
+}
+//=========================================================================
+__myevic__ void ShowFlash()
+{
+//        --dfStealthOn;
+	DrawFillRect( 0, 0, 63, 127, 1 );
+        DisplayRefresh();
+
 }
 
 //=========================================================================

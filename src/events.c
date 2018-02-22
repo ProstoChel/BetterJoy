@@ -524,6 +524,8 @@ __myevic__ void GetUserInput()
 			{
 				Event = 30;	// key lock violation
 			}
+
+                         
 			else
 			{
 				Event = dfStatus2.swap_mp ? 3: 2;
@@ -557,6 +559,11 @@ __myevic__ void GetUserInput()
 		{
 			FireClicksEvent = 0;
 		}
+                	else if ( UserInputs == 6 )
+		{
+
+				Event = 6;	// stealth on/off
+		}  
 		else if ( UserInputs == 4 )
 		{
 			// Left + Right button
@@ -625,8 +632,8 @@ __myevic__ void GetUserInput()
 		}
 		else if ( UserInputs == 6 )
 		{
-
-				Event = 6;	// stealth on/off
+                                ++dfStealthOn;
+				SetScreen(108,300);	// flash
 		}   
 		else if ( UserInputs == 4 ) //left + right
 		{
@@ -933,7 +940,14 @@ __myevic__ int EvtPlusButton()
 			vret = 1;
 		}
 		break;
-
+                
+		case 108:
+		{
+                    int
+			FlashContrast=1;
+		}
+		break;
+                
 		case 102:
 		{
 			vret = MenuEvent( LastEvent );

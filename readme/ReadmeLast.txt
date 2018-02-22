@@ -47,6 +47,8 @@ Some changings from original Sur_Myevic
 -Optimized control
 -Fire screen counter changings (it keeps screen alive)
 
+220218 1:19
+Flashlight! Just hold +Fire which calls stealth. It's glitchy, but works
 
 220218 1:19
 USB voltage in TCR mode. Test
