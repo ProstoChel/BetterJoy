@@ -204,6 +204,9 @@ __myevic__ void EventHandler()
                             }                           
                         return;                       
 			}
+                        if ( Screen == 108 )
+                        DisplaySetContrast( dfContrast );
+
 
 			if ( Screen == 1 )
 			{

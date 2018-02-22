@@ -43,9 +43,12 @@ Some changings from original Sur_Myevic
 -A LOT of interface changing, some of them still not stable, but we work on it
 -Better TC screen (screen refreshes 10 times per second, not 2)
 -Less time for some reaction. You know Drag with 0.025s fire delay? We set 0.010 and it works ^_^
--4 level for brightness - 0-33-66-100-0...
+-4 level for brightness
 -Optimized control
 -Fire screen counter changings (it keeps screen alive)
+
+220218 6:21
+Continious brightness from flashlight fix
 
 220218 1:19
 Flashlight! Just hold +Fire which calls stealth. It's glitchy, but works

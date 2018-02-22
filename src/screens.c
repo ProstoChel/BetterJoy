@@ -1135,9 +1135,9 @@ __myevic__ void ShowGoodBye()
 //=========================================================================
 __myevic__ void ShowFlash()
 {
-//        --dfStealthOn;
+        --dfStealthOn;
 	DrawFillRect( 0, 0, 63, 127, 1 );
-        DisplayRefresh();
+//        DisplayRefresh();
 
 }
 
