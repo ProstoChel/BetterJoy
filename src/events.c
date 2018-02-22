@@ -941,12 +941,12 @@ __myevic__ int EvtPlusButton()
 		}
 		break;
                 
-		case 108:
+/*		case 108:
 		{
-                    int
+                    unsigned char
 			FlashContrast=1;
 		}
-		break;
+		break;*/
                 
 		case 102:
 		{

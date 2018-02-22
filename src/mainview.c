@@ -721,7 +721,7 @@ __myevic__ void DrawInfoLines()
 	DrawCoilLine( 67 );
 
         DrawAPTLines();;
-        DrawStuff(50); //i do not know what that value means
+        DrawStuff(); //i do not know what that value means
 //        DrawLine(0,15,64,15,1,1);
  //       DrawLine(0,46,64,46,1,1);
 //        DrawLine(0,63,64,63,1,1);
@@ -1253,15 +1253,17 @@ __myevic__ void DrawStuff( )
                         if ( ISSINFJ200 )
                         {
                             t = dfIsCelsius ? AkkuTemp : CelsiusToF( AkkuTemp );
-                            DrawValueRight( 13, 117, t, 0, 0x1F, 0 );
+                            DrawValueRight( 39, 117, t, 0, 0x1F, 0 );
                         }
                         else
                         
                         t = dfIsCelsius ? BoardTemp : CelsiusToF( BoardTemp );
-			DrawValueRight( 13, 117, t, 0, 0x1F, t>99?3:2 );
-                        DrawImage( 13, 117+2, dfIsCelsius ? 0xC9 : 0xC8 );
+			DrawValueRight( 39, 117, t, 0, 0x1F, t>99?3:2 );
+                        DrawImage( 39, 117+2, dfIsCelsius ? 0xC9 : 0xC8 );
                         
-                        DrawValue( 24, 117, gFlags.firing?RTBattVolts:BatteryVoltage, 2, 0x1F, 3 );
+                        DrawValue( 0, 117, gFlags.firing?RTBattVolts:BatteryVoltage, 2, 0x1F, 3 );
+                        DrawImage( 20, 117+2, 0x7C );
+                        
 /*			DrawValue( 50, 100, BatteryPercent, 0, 0x1F, 0 );*/
 
                         
