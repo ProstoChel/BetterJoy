@@ -175,9 +175,9 @@ __myevic__ void DrawScreen()
 				ShowVersion();
 				break;
 
-			case 51: // New Coil
+/*			case 51: // New Coil
 				ShowNewCoil();
-				break;
+				break;*/
 
 /*			case 54: // Battery Voltage
 				ShowBattVolts();
@@ -316,7 +316,6 @@ __myevic__ void DrawScreen()
 		gFlags.fading = 0;
 	}
 
-	if (gFlags.firing)
             TenthOfSecs += 1;
 
 	if ( TenthOfSecs < 10 )
@@ -418,7 +417,7 @@ __myevic__ void DrawScreen()
 		case  21: // Atomizer Short
 		case  29: // Device too hot
 		case  31: // Key UnLock
-		case  51: // New Coil
+//		case  51: // New Coil
 		case  55: // Imbalanced Batteries
 		case  56: // Check Battery
 		case  57: // Check USB Adapter
@@ -941,7 +940,7 @@ __myevic__ void ShowVersion()
 
 //=========================================================================
 //----- (000068D4) --------------------------------------------------------
-__myevic__ void ShowNewCoil()
+/*__myevic__ void ShowNewCoil()
 {
 	int rez;
 
@@ -975,7 +974,7 @@ __myevic__ void ShowNewCoil()
 	DrawImage( 40, 102, 0xC0 );
 	DrawStringCentered( String_Left, 114 );
 }
-
+*/
 
 //=========================================================================
 //----- (000076AC) --------------------------------------------------------

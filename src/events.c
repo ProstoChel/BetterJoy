@@ -519,7 +519,7 @@ __myevic__ void GetUserInput()
 				}
 			}
 			else if ( dfStatus.keylock && !EditModeTimer
-				&& Screen != 51
+				/*&& Screen != 51*/
 				&& !IsMenuScreen() )
 			{
 				Event = 30;	// key lock violation
@@ -542,7 +542,7 @@ __myevic__ void GetUserInput()
 				}
 			}
 			else if ( dfStatus.keylock && !EditModeTimer
-				&& Screen != 51
+				/*&& Screen != 51*/
 				&& !IsMenuScreen() )
 			{
 				Event = 30;	// key lock violation
@@ -1459,6 +1459,10 @@ __myevic__ int CustomEvents()
 
 	switch ( LastEvent )
 	{
+            
+/*		case   108:	// flashlight                          
+                    DisplaySetContrast( dfContrast );
+			break;*/
 		case   1:	// Fire button                           
 			vret = EvtFire();
 			break;

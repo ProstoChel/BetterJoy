@@ -47,6 +47,12 @@ Some changings from original Sur_Myevic
 -Optimized control
 -Fire screen counter changings (it keeps screen alive)
 
+220218 21:01
+Flashlight work again
+No more .x watt in TC powerline on >10W
+No more new coil confirmation, if your coil is really new, hold +Fire
+
+
 220218 6:21
 Continious brightness from flashlight fix
 

@@ -205,11 +205,11 @@ __myevic__ void EventHandler()
                         return;                       
 			}
                         
-/*                        if ( Screen == 108 )
+                        if ( Screen == 108 )
                         {
                         DisplaySetContrast( dfContrast );
                         return;
-                        }*/
+                        }
 
 
 			if ( Screen == 1 )
@@ -353,14 +353,14 @@ __myevic__ void EventHandler()
 
 					if (  3 * dfRezNI >= NewRez )
 					{
-						if (	dfRezNI + dfRezNI * dfNewRezPerc / 100 < NewRez // dfRezNI / 20
+						/*if (	dfRezNI + dfRezNI * dfNewRezPerc / 100 < NewRez // dfRezNI / 20
 							&&	dfRezNI + 1 < NewRez
 							&&	!dfRezLockedNI )
 						{
 							gFlags.new_rez_ni = 1;
 							Event = 32;
 							return;
-						}
+						}*/
 
 						if
 						(
@@ -412,14 +412,14 @@ __myevic__ void EventHandler()
 
 					if (  2 * dfRezTI >= NewRez )
 					{
-						if (	dfRezTI + dfRezTI * dfNewRezPerc / 100 < NewRez
+						/*if (	dfRezTI + dfRezTI * dfNewRezPerc / 100 < NewRez
 							&&	dfRezTI + 1 < NewRez
 							&&	!dfRezLockedTI )
 						{
 							gFlags.new_rez_ti = 1;
 							Event = 32;
 							return;
-						}
+						}*/
 
 						if
 						(
@@ -471,7 +471,7 @@ __myevic__ void EventHandler()
 
 					if ( 3 * dfRezSS >= 2 * NewRez )
 					{
-						if (	dfRezSS + dfRezSS * dfNewRezPerc / 100 < NewRez
+						/*if (	dfRezSS + dfRezSS * dfNewRezPerc / 100 < NewRez
 							&&	dfRezSS + 1 < NewRez
 							&&	!dfRezLockedSS )
 						{
@@ -480,7 +480,7 @@ __myevic__ void EventHandler()
 							return;
 						}
 						else
-						{
+						{*/
 							if
 							(
 								(	( dfRezSS - dfRezSS * dfNewRezPerc / 100 <= NewRez || dfRezSS - 1 <= NewRez )
@@ -502,7 +502,7 @@ __myevic__ void EventHandler()
 								dfMillis = ( dfMillis & ~0xf00 ) | ( NewMillis << 8 );
 							}
 						}
-					}
+					//}
 					else
 					{
 						dfResistance = NewRez;
@@ -529,7 +529,7 @@ __myevic__ void EventHandler()
 
 					if ( 3 * dfRezTCR >= 2 * NewRez )
 					{
-						if (	dfRezTCR + dfRezTCR * dfNewRezPerc / 100 < NewRez
+/*						if (	dfRezTCR + dfRezTCR * dfNewRezPerc / 100 < NewRez
 							&&	dfRezTCR + 1 < NewRez
 							&&	!dfRezLockedTCR )
 						{
@@ -538,7 +538,7 @@ __myevic__ void EventHandler()
 							return;
 						}
 						else
-						{
+						{*/
 							if
 							(
 								(	( dfRezTCR - dfRezTCR * dfNewRezPerc / 100 <= NewRez || dfRezTCR - 1 <= NewRez )
@@ -559,7 +559,7 @@ __myevic__ void EventHandler()
 								dfRezTCR = NewRez;
 								dfMillis = ( dfMillis & ~0xf000 ) | ( NewMillis << 12 );
 							}
-						}
+//						}
 					}
 					else
 					{
@@ -813,13 +813,13 @@ __myevic__ void EventHandler()
 			//ScreenDuration = 5;
 			return;
 
-		case 32:	// New coil
+/*		case 32:	// New coil
 			StopFire();
                         SetScreen( 51, 10 );
 			//gFlags.refresh_display = 1;
 			//Screen = 51;
 			//ScreenDuration = 10;
-			return;
+			return;*/
 
 /*
 		case 31:	// Show board temperature
@@ -1195,7 +1195,7 @@ __myevic__ void EventHandler()
 				MainView();
 			}
                      
-			else if ( Screen == 51 )
+/*			else if ( Screen == 51 )
 			{
 				switch ( dfMode )
 				{
@@ -1223,7 +1223,7 @@ __myevic__ void EventHandler()
 						break;
 				}
 				MainView();
-			}
+			}*/
 			else if ( Screen == 1 )
 			{
 				KeyUpTimer = 10;
@@ -1354,7 +1354,7 @@ __myevic__ void EventHandler()
 				MainView();
 			}
 
-			if ( Screen == 51 )
+/*			if ( Screen == 51 )
 			{
 				switch ( dfMode )
 				{
@@ -1383,7 +1383,7 @@ __myevic__ void EventHandler()
 				}
 				MainView();
 			}
-			else if ( Screen == 1 )
+			else */if ( Screen == 1 )
 			{
 				KeyUpTimer = 10;
 
