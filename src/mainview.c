@@ -158,10 +158,10 @@ __myevic__ void DrawPwrLine( int pwr, int line )
 			//DrawImage( x+1, y+yoff, 0x98 );
 		//}
 	}    
-	else if ( pwr < 1000 ) // < 100 w
+	else  if ( pwr < 1000 ) // < 100 w
 	{
-		DrawValueRight( 21, y, pwr, 1, fset, 0 );
-                DrawImage( 21, y+yoff, 0xB2 );
+		DrawValueRight( 18, y, pwr / 10, 0, fset, 2 );
+                DrawImage( 18, y+yoff, 0xB2 );
 		//DrawImage( x+1, y+yoff, 0x98 );
 	}
 	else // > 99 w
@@ -303,7 +303,7 @@ __myevic__ void DrawCoilLine( int line )
         DrawImage( 42, line+2, 0xF4 ); //dot}
         }        
         else 
-        {DrawValue( 40, line, rez2, 3, 0x1F, 4 );}
+        {DrawValue( 37, line, rez2, 3, 0x1F, 4 );}
                    
         DrawImage( 29, line+2, 0xC0 ); //ohm
 //        If((rez<1000) && (rez2<1000))
