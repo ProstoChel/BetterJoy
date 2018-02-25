@@ -721,7 +721,7 @@ __myevic__ void CheckMode()
 		{
 			dfRezNI  = word_200000BA / 10;
 			dfMillis &= ~0xf;
-			dfMillis |= word_200000B8 % 10;
+			dfMillis |= word_200000BA  % 10;
 		}
 		if ( !gFlags.new_rez_ti  )
 		{
@@ -733,13 +733,13 @@ __myevic__ void CheckMode()
 		{
 			dfRezSS  = word_200000BC / 10;
 			dfMillis &= ~0xf00;
-			dfMillis |= ( word_200000B8 % 10 ) << 8;
+			dfMillis |= ( word_200000BC  % 10 ) << 8;
 		}
 		if ( !gFlags.new_rez_tcr )
 		{
 			dfRezTCR = word_200000BE / 10;
 			dfMillis &= ~0xf000;
-			dfMillis |= ( word_200000B8 % 10 ) << 12;
+			dfMillis |= ( word_200000BE % 10 ) << 12;
 		}
 
 		if ( AtoRez < 5 )

@@ -1497,7 +1497,7 @@ __myevic__ void BatteryChargeDual()
 							{
 								if ( USBMaxLoad )
 								{
-									if ( USBVolts > 420 )
+									if ( USBVolts > 400 )
 									{
 										ChargerTarget = GetMaxCharge( 1000 ); //1000;
 									}
@@ -1518,7 +1518,7 @@ __myevic__ void BatteryChargeDual()
 
 						BBC_Configure( BBC_PWMCH_CHARGER, 1 );
 
-						if ( ChargeCurrent > ChargerTarget + 10 || USBVolts < 400 )
+						if ( ChargeCurrent > ChargerTarget + 10 || USBVolts < 350 )
 						{
 							if ( ChargerDuty )
 							{
@@ -1907,7 +1907,7 @@ __myevic__ void BatteryCharge()
 
 						if ( USBMaxLoad == 3 )
 						{
-							if ( USBVolts <= 420 )
+							if ( USBVolts <= 400 )
 							{
 								USBMaxLoad = 2;
 								ChargerTarget = GetMaxCharge( 1500 ); //1500;
@@ -1919,7 +1919,7 @@ __myevic__ void BatteryCharge()
 						}                                                
 						else if ( USBMaxLoad == 2 )
 						{
-							if ( USBVolts <= 420 )
+							if ( USBVolts <= 400 )
 							{
 								USBMaxLoad = 1;
 								ChargerTarget = GetMaxCharge( 1000 ); //1000;
@@ -1931,7 +1931,7 @@ __myevic__ void BatteryCharge()
 						}
 						else if ( USBMaxLoad )
 						{
-							if ( USBVolts <= 420 )
+							if ( USBVolts <= 400 )
 							{
 								USBMaxLoad = 0;
 								ChargerTarget = GetMaxCharge( 1000 ); //500;
@@ -1954,7 +1954,7 @@ __myevic__ void BatteryCharge()
 
 				BBC_Configure( BBC_PWMCH_CHARGER, 1 );
 
-				if ( ( ChargeCurrent > ChargerTarget + 10 ) || ( USBVolts < 400 ) )
+				if ( ( ChargeCurrent > ChargerTarget + 10 ) || ( USBVolts < 390 ) )
 				{
 					if ( ChargerDuty )
 					{

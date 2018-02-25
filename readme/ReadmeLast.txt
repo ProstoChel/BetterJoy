@@ -47,6 +47,12 @@ Some changings from original Sur_Myevic
 -Optimized control
 -Fire screen counter changings (it keeps screen alive)
 
+220218 0:29
+You don't need to press 3 keys to rotate screen/swap keys, just use 2 buttons -+ to make it
+0.4 sec - key (un)lock
+0.8 sec - flip screen
+2 sec - swap +-
+
 220218 21:01
 Flashlight work again
 No more .x watt in TC powerline on >10W

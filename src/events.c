@@ -571,6 +571,17 @@ __myevic__ void GetUserInput()
 			{
 				Event = EVENT_EXIT_MENUS;
 			}
+                        else if ( !EditModeTimer && !IsMenuScreen() ) //!IsMenuScreen() for no key lock in menu
+			{
+				if ( dfStatus.off )
+				{
+					Event = 18;	// flip display
+				}
+				else
+				{
+					Event = 4;	// key (un)lock
+				}
+			}
 		}
 		else if ( UserInputs == 5 )
 		{
@@ -639,14 +650,8 @@ __myevic__ void GetUserInput()
 		{
 			if ( !EditModeTimer && !IsMenuScreen() ) //!IsMenuScreen() for no key lock in menu
 			{
-				if ( dfStatus.off )
-				{
+                                        dfStatus.keylock ^= 1;
 					Event = 18;	// flip display
-				}
-				else
-				{
-					Event = 4;	// key (un)lock
-				}
 			}
 		}
                 else if ( UserInputs == 7 ) //all 3 buttons
@@ -733,7 +738,7 @@ __myevic__ void GetUserInput()
 	}
 	else if ( KeyPressTime == 200 )
 	{
-		if ( UserInputs == 7 ) // all three very LONG
+		if ( UserInputs == 4 ) // all three very LONG
 		{
                     dfStatus2.swap_mp ^= 1;
         	    DrawStringCentered( String_SwapMP, 64 );
