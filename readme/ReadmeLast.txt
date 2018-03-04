@@ -47,6 +47,14 @@ Some changings from original Sur_Myevic
 -Optimized control
 -Fire screen counter changings (it keeps screen alive)
 
+040318 23:16
+New feature:
+ChargeTemp Protection 
+You can set in settings/expert/MAX/ChT max temp when mod is charging. 
+If device become hotter that ChT, it just stops charge until device became colder. It protects you li-ion battery and your mod. 
+Default settings: 50°C
+Also, there is some changes in charging screen, but it's a little glitchy, I am little lazy. Not it shows every battery percent. I wanna make clock too.
+
 220218 0:29
 You don't need to press 3 keys to rotate screen/swap keys, just use 2 buttons -+ to make it
 0.4 sec - key (un)lock

@@ -804,41 +804,41 @@ __myevic__ void ShowBatCharging()
 	}
 */
   
-	if ( dfBattLine == 0 )
+/*	if ( dfBattLine == 0 )
 	{
 		DrawImage( 8, 116, 0xC4 );
 	}
-	else
+	else*
 	{
 		DrawValueRight(	18, 120, BatteryPercent, 0, 0x1F, 0 );
 		DrawImage( 19, 120, 0xC2 );
 		DrawImage( 30, 116, 0xE2 );
-	}
+	}*/
         
 	if ( BatteryTenth != 10 )
 	{
 		if ( BatAnimLevel )
 		{
-			if ( dfBattLine == 0 )
+/*			if ( dfBattLine == 0 )
 			{
 				DrawFillRectLines( 10, 121, (4 * BatAnimLevel + 9), 125, 1 );
 			}
                         else
-			{
+			{*/
 				DrawFillRectLines( 32, 121, (25 * BatAnimLevel / 10 + 31), 125, 1 );
-			}
+//			}
 		}
 	}
 	else if ( gFlags.draw_battery_charging )
 	{
-		if ( dfBattLine == 0 )
+/*		if ( dfBattLine == 0 )
 		{
 			DrawFillRectLines( 10, 121, 49, 125, 1 );
 		}
                 else
-		{
+		{*/
 			DrawFillRectLines( 32, 121, 56, 125, 1 );
-		}
+//		}
 	}
 
 /*
@@ -852,19 +852,22 @@ __myevic__ void ShowBatCharging()
 */
 		for ( int i = 0 ; i < NumBatteries ; ++i )
 		{
-			DrawValue(  1, 104 - i * 14, BattVolts[NumBatteries - i - 1], 2, 0x1F, 3 );
-			DrawImage( 23, 104 - i * 14, 0x7D );
+			DrawValue(  5, 61 + i * 14, BattVolts[NumBatteries - i - 1], 2, 0x1F, 3 );
+			DrawImage( 25, 63 + i * 14, 0x7D );
+			DrawValueRight(  51, 61 + i * 14, BatteryVoltsToPercent(BattVolts[NumBatteries - 1 - i]), 0, 0x1F, 2 );
+			DrawImage( 51, 63 + i * 14, 0xC2 );
+                        
 		}
                 
                 if ( NumBatteries > 1 )
                 {
-                DrawString( String_USB, 6, 0 );
-                DrawValue(  31, 9, USBVolts, 2, 0x1F, 3 );
-                DrawImage( 52, 9, 0x7D );
+//                DrawString( String_USB, 6, 0 );
+                DrawValue(  2, 37, USBVolts, 2, 0x1F, 3 );
+                DrawImage( 2+21, 37+2, 0x7D );
         
-                DrawString( String_Charge, 6, 20 );
-                DrawValue(  31, 34, ChargeCurrent / 10, 2, 0x0B, 3 );
-                DrawImage( 52, 34, 0x68 );
+//                DrawString( String_Charge, 6, 20 );
+                DrawValue(  31, 37, ChargeCurrent / 10, 2, 0x1F, 3 );
+                DrawImage( 52, 37+2, 0x68 );
                 } else
                 {
                     DrawString( String_Charge, 6, 0 );    
@@ -875,14 +878,14 @@ __myevic__ void ShowBatCharging()
         if ( ISSINFJ200 )
         {
                 t = dfIsCelsius ? AkkuTemp : CelsiusToF( AkkuTemp );
-                DrawValueRight( 52, 90, t, 0, 0x0B, 0 );
-                DrawImage( 54, 90, dfIsCelsius ? 0xC9 : 0xC8 );
+                DrawValueRight( 54, 116, t, 0, 0x0B, 0 );
+                DrawImage( 54, 118, dfIsCelsius ? 0xC9 : 0xC8 );
         }
                         
 	t = dfIsCelsius ? BoardTemp : CelsiusToF( BoardTemp );
 
-	DrawValueRight( 52, 104, t, 0, 0x0B, 0 );
-	DrawImage( 54, 104, dfIsCelsius ? 0xC9 : 0xC8 );
+	DrawValueRight( 54, 116, t, 0, 0x0B, 0 );
+	DrawImage( 54, 118, dfIsCelsius ? 0xC9 : 0xC8 );
 }
 
 //=========================================================================

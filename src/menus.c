@@ -1253,7 +1253,7 @@ __myevic__ void MaxMenuIDraw( int it, int line, int sel )
 	if ( it >= CurrentMenu->nitems - 1 )
 		return;
 
-	DrawFillRect( 30, line, 63, line+12, 0 );
+	DrawFillRect( 33, line, 63, line+12, 0 );
 
 	switch ( it )
 	{
@@ -1262,9 +1262,9 @@ __myevic__ void MaxMenuIDraw( int it, int line, int sel )
                     
                     if ( dfMaxPower < 1000 )
                     {
-                    	DrawValueRight( 53, line+2, dfMaxPower, 1, 0x0B, 0 );
+                    	DrawValueRight( 55, line+2, dfMaxPower, 1, 0x0B, 0 );
                     } else {
-                        DrawValueRight( 53, line+2, dfMaxPower / 10, 0, 0x0B, 0);  
+                        DrawValueRight( 55, line+2, dfMaxPower / 10, 0, 0x0B, 0);  
                     }
 			DrawImageRight( 63, line+2, 0x7E );
                         break;                       
@@ -1272,13 +1272,13 @@ __myevic__ void MaxMenuIDraw( int it, int line, int sel )
 		case 1:	// v
                         if (!dfMaxVolts) dfMaxVolts = MaxVolts;
                         
-                    	DrawValueRight( 53, line+2, dfMaxVolts, 2, 0x0B, 0 );
+                    	DrawValueRight( 55, line+2, dfMaxVolts, 2, 0x0B, 0 );
 			DrawImageRight( 63, line+2, 0x7D );
 			break;
 
 		case 2:	// t
                         t = dfIsCelsius ? dfMaxBoardTemp : CelsiusToF( dfMaxBoardTemp );
-			DrawValueRight( 53, line+2, t, 0, 0x0B, t>99?3:2 );
+			DrawValueRight( 55, line+2, t, 0, 0x0B, t>99?3:2 );
 			DrawImageRight( 63, line+2, dfIsCelsius ? 0xC9 : 0xC8 );
 			break;     
 	                 
@@ -1287,7 +1287,7 @@ __myevic__ void MaxMenuIDraw( int it, int line, int sel )
                     {
                         DrawImageRight( 63, line+2 , 0xF6 ); // N/A
                     } else {
-                    	DrawValueRight( 53, line+2, dfUSBMaxCharge / 10, 2, 0x0B, 3 );
+                    	DrawValueRight( 55, line+2, dfUSBMaxCharge / 10, 2, 0x0B, 3 );
 			DrawImageRight( 63, line+2, 0x68 );
                     }
 			break;
@@ -1301,7 +1301,11 @@ __myevic__ void MaxMenuIDraw( int it, int line, int sel )
                 //        DrawValueRight( 53, line+2, dfBattMaxAmps, 0, 0x0B, 0 );
 		//	DrawImageRight( 63, line+2, 0x68 );
 		//	break;
-                        
+		case 5:	// t
+                        t = dfIsCelsius ? dfMaxChargeTemp : CelsiusToF( dfMaxChargeTemp );
+			DrawValueRight( 55, line+2, t, 0, 0x0B, t>99?3:2 );
+			DrawImageRight( 63, line+2, dfIsCelsius ? 0xC9 : 0xC8 );
+			break;                          
 		default:
 			break;
 	}
@@ -1375,13 +1379,18 @@ __myevic__ int MaxMenuOnEvent( int event )
                                             dfMaxBoardTemp = ( KeyTicks == 0 ) ? 20 : 99;
                                         }
                                         break;
-                                        
+                                 case 5: //charge temp 
+                                        if ( ++dfMaxChargeTemp > 99 )
+                                        {
+                                            dfMaxChargeTemp = ( KeyTicks == 0 ) ? 20 : 99;
+                                        }
+                                        break;                                       
                                 case 3: //ch
                                         if ( dfUSBMaxCharge + 10 > 2000 )
                                         {
                                             dfUSBMaxCharge = ( KeyTicks == 0 ) ? 100 : 2000;
                                         } else {
-                                         dfUSBMaxCharge += 10;   
+                                         dfUSBMaxCharge += 100;   
                                         }
 					break;
                                         
@@ -1434,7 +1443,12 @@ __myevic__ int MaxMenuOnEvent( int event )
                                             dfMaxBoardTemp = ( KeyTicks == 0 ) ? 99 : 20;
                                         }
 					break;
-                                        
+                                case 5: //charge temp
+                                        if ( --dfMaxChargeTemp < 20 )
+                                        {
+                                            dfMaxChargeTemp = ( KeyTicks == 0 ) ? 99 : 20;
+                                        }
+					break;                                        
                                 case 3: //ch
                                         if ( dfUSBMaxCharge - 10 < 100 )
                                         {
@@ -1473,7 +1487,10 @@ __myevic__ int MaxMenuOnEvent( int event )
 				case 2:	// board temp
 					dfMaxBoardTemp = 70;
 					break;   
-                                
+				case 5:	// Charge temp
+					dfMaxBoardTemp = 50;
+					break;     
+                                        
                                 case 3:	// charge
 					dfUSBMaxCharge = 1000;
 					break;  
@@ -3501,13 +3518,14 @@ const menu_t MAXMenu =
 	0,
 	MaxMenuOnClick+1,
 	MaxMenuOnEvent+1,
-	6,
+	7,
 	{
 		{ String_PWR_s, 0, 0, 0 },	       
                 { String_VOLT_s, 0, 0, 0 },
 		{ String_TEMP_s, 0, 0, 0 },
                 { String_UCH_s, 0, 0, 0 },
-                { String_BY, 0, 0, 0 },                        
+                { String_BY, 0, 0, 0 }, 
+		{ String_TEMP_c, 0, 0, 0 },
                 { String_Back, 0, EVENT_PARENT_MENU, 0 }
 	}
 };

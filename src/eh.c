@@ -205,11 +205,11 @@ __myevic__ void EventHandler()
                         return;                       
 			}
                         
-                        if ( Screen == 108 )
+/*                        if ( Screen == 108 )
                         {
                         DisplaySetContrast( dfContrast );
                         return;
-                        }
+                        }*/
 
 
 			if ( Screen == 1 )
@@ -1080,7 +1080,7 @@ __myevic__ void EventHandler()
 			}
 			gFlags.usb_attached = 0;
 			gFlags.battery_charging = 0;
-                        dfStatus.usbchghotoff = 0;
+//                        dfStatus.usbchghotoff = 0;
 			gFlags.monitoring = 0;
                         gFlags.refresh_display = 1;
 			if ( Screen == 5 )

@@ -1465,10 +1465,9 @@ __myevic__ int CustomEvents()
 	switch ( LastEvent )
 	{
             
-/*		case   108:	// flashlight                          
+
+		case   1:	// Fire button   
                     DisplaySetContrast( dfContrast );
-			break;*/
-		case   1:	// Fire button                           
 			vret = EvtFire();
 			break;
 

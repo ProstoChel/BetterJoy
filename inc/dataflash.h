@@ -74,7 +74,7 @@ typedef struct
 /* 00040000 */	unsigned int invert:1;      //lsls 0x0D
 /* 00080000 */	unsigned int vapedml:1;     //lsls 0x0C
 /* 00100000 */	unsigned int onedegree:1;   //lsls 0x0B
-/* 00200000 */	unsigned int usbchghotoff:1;       //lsls 0x0A
+///* 00200000 */	unsigned int usbchghotoff:1;       //lsls 0x0A
 /* 00400000 */	unsigned int lsloff:1;      //lsls 0x09
 /* 00800000 */	unsigned int logomid:1;     //lsls 0x08  23-d bit
 
@@ -158,7 +158,8 @@ typedef struct dfParams
 /* 0024 */	dfBattery_t	Battery;
 /* 003A */	dfPCPoint_t	PwrCurve[PWR_CURVE_PTS];
 /* 004E */	//uint8_t		Unused4E[38];         //recheck for PWR_CURVE_PTS value /* 004E */ = 10 pts /* 0062 */ = 20 pts
-/* 0062 */	uint8_t		Unused4E[11];         //recheck for PWR_CURVE_PTS value /* 004E */ = 10 pts /* 0062 */ = 20 pts
+/* 0062 */	uint8_t		Unused4E[10];         //recheck for PWR_CURVE_PTS value /* 004E */ = 10 pts /* 0062 */ = 20 pts
+/* 006D */	uint8_t         MaxChargeTemp; 
 /* 006D */	uint8_t		ThreeButtonsAct;        //action
 /* 006E */	uint8_t		StealthPuffsCnt;        //stealth delay in puffs
 /* 006F */	uint8_t		ScrChargeTime;          // timeout for charge screen
@@ -428,6 +429,7 @@ extern dfStruct_t DataFlash;
 #define dfMaxVolts              DFP(MaxVolts)
 #define dfUSBMaxCharge          DFP(USBMaxCharge)
 #define dfMaxBoardTemp          DFP(MaxBoardTemp)
+#define dfMaxChargeTemp          DFP(MaxChargeTemp)
 #define dfDimOffTimeout         DFP(DimOffTimeout)
 #define dfDimOffMode            DFP(DimOffMode)
 

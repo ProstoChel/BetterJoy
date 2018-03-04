@@ -747,6 +747,7 @@ __myevic__ void ResetDataFlash()
         
         dfUSBMaxCharge = 2000; 
         dfMaxBoardTemp = 70;
+        dfMaxChargeTemp = 50;        
         dfBattVolt = 420;
     //    dfStatus.nbrc = 0;        
         

@@ -1402,7 +1402,7 @@ __myevic__ void BatteryChargeDual()
 
 	if ( gFlags.usb_attached )
 	{
-		if ( dfStatus.usbchgoff || dfStatus.usbchghotoff )
+		if ( dfStatus.usbchgoff) //|| dfStatus.usbchghotoff 
 		{
 			if ( ChargeStatus != 5 && ChargeStatus != 6 )
 			{
@@ -1410,14 +1410,14 @@ __myevic__ void BatteryChargeDual()
 				ChargeStatus = 6;
 			}
 		}
-                else if ( BoardTemp > dfMaxBoardTemp )
+                else if ( BoardTemp > dfMaxChargeTemp )
                 {
                     Event = 13;  // Battery charge stop
                     if ( ChargeStatus != 6 )
                     {
 			ChargeStatus = 6; //no charge   
-                        dfStatus.usbchghotoff = 1;
-                        Overtemp();
+//                        dfStatus.usbchghotoff = 1;
+//                        Overtemp();
                         //gFlags.refresh_display = 1;
 			//Screen = 29;	// overtemp
 			//ScreenDuration = 3;                      
@@ -1484,7 +1484,7 @@ __myevic__ void BatteryChargeDual()
 
 				if ( ChargeStatus != 5 && ChargeStatus != 6 )
 				{
-					if ( gFlags.battery_charging )
+					if ( gFlags.battery_charging  )
 					{
 						if ( BatteryVoltage < 290 )
 						{
@@ -1760,7 +1760,7 @@ __myevic__ void BatteryCharge()
         
 	if ( gFlags.usb_attached )
 	{
-		if ( dfStatus.usbchgoff || dfStatus.usbchghotoff )
+		if ( dfStatus.usbchgoff ) //|| dfStatus.usbchghotoff
 		{
 			if ( ChargeStatus != 5 && ChargeStatus != 6 )
 			{
@@ -1768,15 +1768,15 @@ __myevic__ void BatteryCharge()
 				ChargeStatus = 6; //no charge
 			}
 		}
-                else if ( ( BoardTemp > dfMaxBoardTemp ) 
-                        || ( ISSINFJ200 && ( AkkuTemp > 70 ) ) )
+                else if ( ( BoardTemp > dfMaxChargeTemp ) 
+                        || ( ISSINFJ200 && ( AkkuTemp > dfMaxChargeTemp ) ) )
                 {
                     Event = 13;  // Battery charge stop
                     if ( ChargeStatus != 6 )
                     {
 			ChargeStatus = 6; //no charge  
-                        dfStatus.usbchghotoff = 1;
-                        Overtemp();
+//                        dfStatus.usbchghotoff = 1;
+//                        Overtemp();
                         //gFlags.refresh_display = 1;
 			//Screen = 29;	// overtemp
 			//ScreenDuration = 3;                      
