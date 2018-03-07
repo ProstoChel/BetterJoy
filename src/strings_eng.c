@@ -38,7 +38,7 @@ __string__ String_Hard 		[] = { 0xA3, 0x82, 0x93, 0x85, 0 }; // "Hard"
 __string__ String_Exit 		[] = { 0xA0, 0x99, 0x8A, 0x95, 0 }; // "Exit"
 //__string__ String_Back 		[] = { 0x9D, 0x82, 0x84, 0x8C, 0 }; // "Back"
 __string__ String_Back 		[] = { 0xCF, 0 }; // "< -"
-__string__ String_NI 		[] = { 0x75, 0x8A, 0	}; // "NI"
+__string__ String_NI 		[] = { 0xA9, 0xA4, 0	}; // "NI"
 __string__ String_TI 		[] = { 0xAF, 0xA4, 0	}; // "TI"
 __string__ String_SS 		[] = { 0xAE, 0xAE, 0	}; // "SS"
 __string__ String_BF_s 		[] = { 0x69, 0x6D, 0	}; // "BF" (small)
@@ -48,10 +48,10 @@ __string__ String_AMP_s 	[] = { 0xE5, 0 }; //[] = { 0x68, 0x74, 0x77, 0 }; // "A
 __string__ String_MAX_s 	[] = { 0x74, 0x68, 0x7F, 0 }; // "MAX" (small)
 __string__ String_MIN_s 	[] = { 0x74, 0x70, 0x75, 0 }; // "MIN" (small)
 __string__ String_Weak 		[] = { 0xB2, 0x86, 0x82, 0x8C, 0 }; // "Weak"
-__string__ String_TEMP 		[] = { 0x7B, 0x6C, 0x74, 0x77, 0 }; // "TEMP"
+__string__ String_TEMP 		[] = { 0xAF, 0xA0, 0xA8, 0xAB, 0 }; // "TEMP"
 __string__ String_TCRSet 	[] = { 0xAF, 0x9E, 0xAD, 0xBC, 0xAE, 0x86, 0x95, 0 }; // "TCR Set"
 __string__ String_POWER 	[] = { 0xAB, 0xAA, 0xB2, 0xA0, 0xAD, 0 }; // "POWER"
-__string__ String_BYPASS 	[] = { 0x69, 0x80, 0x77, 0x68, 0x7A, 0x7A, 0 }; // "BYPASS"
+__string__ String_BYPASS 	[] = { 0x9D, 0xB4, 0xAB, 0x9C, 0xAE, 0xAE, 0 }; // "BYPASS"
 __string__ String_VOLT_s 	[] = { 0xE6, 0 }; //[] = { 0x7D, 0x76, 0x73, 0x7B, 0 }; // "VOLT" (small)
 __string__ String_COIL_s 	[] = { 0xE9, 0 }; //[] = { 0x6A, 0x76, 0x70, 0x73, 0 }; // "COIL" (small)
 __string__ String_TIME_s 	[] = { 0xE7, 0 }; //[] = { 0x7B, 0x70, 0x74, 0x6C, 0 }; // "TIME" (small)

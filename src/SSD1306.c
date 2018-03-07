@@ -189,10 +189,14 @@ __myevic__ void SSD1306_Plot( int x, int y, int color )
 //----- (000055FC) --------------------------------------------------------
 __myevic__ uint32_t SSD1306_Image( int x, int y, uint8_t img, int color )
 {
-	if ( img == 0x88 || img == 0x8B || img == 0x91 || img == 0x92 || img == 0x9A )
+	if ( img == 0x88 || img == 0x91 || img == 0x92 || img == 0x9A )
 	{
 		y += 2;
 	}
+	if (img == 0x8B)
+	{
+		y += 1;
+	}        
 	return SSD1306_Bitmap( x, y, Images[img - 1], color );
 }
 
