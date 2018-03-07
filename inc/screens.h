@@ -78,6 +78,9 @@ extern void ShowChargeError();
 extern void ShowImbBatts();
 extern void ShowPowerCurve();
 extern void ShowSplash();
+extern void ShowFlash();
+extern void ShowFuckOff();
+
 
 extern void ShowFireDuration( int line );
 
@@ -114,6 +117,8 @@ extern const uint8_t String_Protection[];
 extern const uint8_t String_Version[];
 extern const uint8_t String_Device[];
 extern const uint8_t String_TooHot[];
+extern const uint8_t String_Fuck[];
+extern const uint8_t String_sFuckOff[];
 extern const uint8_t String_Stealth[];
 extern const uint8_t String_Temp[];
 extern const uint8_t String_Battery[];

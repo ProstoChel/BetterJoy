@@ -3950,9 +3950,9 @@ const menu_t MainMenu =
 	0,
 	8,
 	{
-		{ String_Screen, &ScreenMenu, 0, MACTION_SUBMENU },
-		{ String_Coils, &CoilsMenu, 0, MACTION_SUBMENU },
 		{ String_Vaping, &VapingMenu, 0, MACTION_SUBMENU },
+		{ String_Coils, &CoilsMenu, 0, MACTION_SUBMENU },
+		{ String_Screen, &ScreenMenu, 0, MACTION_SUBMENU },
 		{ String_Clock, &ClockMenu, 0, MACTION_SUBMENU },
 		{ String_Interface, &IFMenu, 0, MACTION_SUBMENU },
 		{ String_Expert, &ExpertMenu, 0, MACTION_SUBMENU },

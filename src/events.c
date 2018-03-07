@@ -486,6 +486,9 @@ __myevic__ void GetUserInput()
 						}
 					}
 					break;
+                                case 6:
+                                    Screen = 109;
+					break;
 
                                 default:
                                         FireClicksEvent = 17; //not Event

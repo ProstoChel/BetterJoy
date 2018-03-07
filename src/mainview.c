@@ -63,7 +63,7 @@ __myevic__ void DrawMode()
 				DrawString( String_TEMP, 2, 4 );
 				break;
 			case 2:
-				DrawString( String_TEMP, 1, 4 );
+				DrawString( String_TEMP, 2, 4 );
 				break;
 			case 3:
 				DrawString( String_TCR, 2, 4 );
@@ -87,13 +87,13 @@ __myevic__ void DrawMode()
 		switch ( dfMode )
 		{
 			case 0:
-				DrawString( String_NI, 29, 4 );
+				DrawString( String_NI, 31, 4 );
 				break;
 			case 1:
-				DrawString( String_TI, 29, 4 );
+				DrawString( String_TI, 31, 4 );
 				break;
 			case 2:
-				DrawString( String_SS, 28 , 4 );
+				DrawString( String_SS, 31 , 4 );
 				//DrawImage( 48, 3, 0x04 );
 				//DrawImage( 54, 3, 0x02 );
 				//DrawImage( 59, 3, 0x07 );
@@ -203,7 +203,7 @@ __myevic__ void DrawTempLine( int line )
         
 //        DrawString( String_TEMP_s, 0, y+yoff );
 
-	if ( Screen == 2 ) //fire
+	if ( gFlags.firing || Screen == 2 ) //fire
 	{
 		if ( dfIsCelsius )
 		{
@@ -649,8 +649,9 @@ __myevic__ void DrawInfoLines()
     //return;
 
     
-	if ( Screen == 2 ) //firing
+	if ( gFlags.firing || Screen == 2 ) //firing //Screen == 2
 	{
+            ShowFireDuration( 0 );        
 		switch ( dfMode )
 		{
 			case 0:
@@ -681,7 +682,6 @@ __myevic__ void DrawInfoLines()
 			default:
 				break;
 		}
-                ShowFireDuration( 0 );        
 	}
 	else
 	{
@@ -758,7 +758,7 @@ __myevic__ void DrawBFLine( int y )
 
 __myevic__ void DrawTemp()
 {
-	if ( Screen == 2 )
+	if ( gFlags.firing || Screen == 2 )
 	{
 		if ( dfIsCelsius )
 		{
@@ -946,7 +946,7 @@ __myevic__ void ShowMainView()
 	{
 		if ( dfStatus.priopwr )
 		{
-			if ( Screen == 2 )
+			if ( gFlags.firing || Screen == 2 )
 			{
 				pwr = AtoPower( TargetVolts );
 			}

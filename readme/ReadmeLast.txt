@@ -1,11 +1,12 @@
-Finally, we have readme and version history. Yeah, you can use github to get changelog, but it's not popular. This is online document
-You always can discuss BetterJoy in TG https://t.me/betterjoy and get some answers
+ATTENTION! Temporary you can get last release on TG chat, not in autoUpdater.
+
+You always can discuss BetterJoy in TG chat https://t.me/betterjoy and get some answers
 
 If you like BetterJoy, you can support project with this 
 https://www.paypal.me/betterjoy ;)
 It's really hard to develop, you can check it. Also you can help with your code, it will be great. Just follow github.com/ProstoChel/BetterJoy
 
-We work on:
+I work on:
 -Regulated source of energy mode - it's not just powerbank, it can use any voltage/wattage/TC in the end or connect some devices
 -Puff detection - in this mode you do not need press fire button, all you need is start to puff
 -Flashlight mode
@@ -46,6 +47,14 @@ Some changings from original Sur_Myevic
 -4 level for brightness
 -Optimized control
 -Fire screen counter changings (it keeps screen alive)
+
+080318 1:56
+Banary files provides in TG chat, not in github. Temporary
+6 clicks for FUCKOFF screen. Useless, but it is the first wish for BetterJoy :)
+Fonts are bigger and better
+A lot of interface fixes
+For example, no more screen frizes in TC (i guess)
+Vaping in the first place on Menu
 
 040318 23:16
 New feature:

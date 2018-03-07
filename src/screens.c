@@ -58,6 +58,7 @@ __myevic__ void DrawScreen()
 		TenthOfSecs = 0;
 		gFlags.refresh_display = 1;
 	}
+        
 	else if ( ScreenRefreshTimer && !--ScreenRefreshTimer )
 	{
 		if ( Screen != 2 ) 
@@ -259,6 +260,10 @@ __myevic__ void DrawScreen()
                                 DisplaySetContrast(255);
 				ShowFlash();
 				break;
+			case 109:
+   				ShowFuckOff();
+				break;
+                        
                                                 
                                 
                         case EVENT_SET_JOULES: //scr = event
@@ -354,7 +359,7 @@ __myevic__ void DrawScreen()
 			}
 			break;
 
-		case   2: // Firing
+		case 2: // Firing
                         if ( dfStealthOn == 1 && StealthPuffs && FireDuration > 1 ) //CurrentFD
                         {
                             --StealthPuffs;
@@ -790,7 +795,33 @@ __myevic__ void ShowBatCharging()
 	{
 		return;
 	}
-               
+                if ( NumBatteries > 1 )
+                {
+                DrawString( String_USB, 6, 42 );
+                DrawValue(  2, 58, USBVolts, 2, 0x1F, 3 );
+                DrawImage( 2+21, 58+2, 0x7D );
+        
+//                DrawString( String_Charge, 6, 20 );
+                DrawValue(  31, 58, ChargeCurrent / 10, 2, 0x1F, 3 );
+                DrawImage( 52, 58+2, 0x68 );
+                } else
+                {
+                    DrawString( String_Charge, 6, 0 );    
+                }
+        
+	//}
+        int t;
+        if ( ISSINFJ200 )
+        {
+                t = dfIsCelsius ? AkkuTemp : CelsiusToF( AkkuTemp );
+                DrawValueRight( 47, 42, t, 0, 0x1F , 0 );
+                DrawImage( 47, 42, dfIsCelsius ? 0xC9 : 0xC8 );
+        }
+                        
+	t = dfIsCelsius ? BoardTemp : CelsiusToF( BoardTemp );
+
+	DrawValueRight( 47, 42, t, 0, 0x1F, 0 );
+	DrawImage( 47, 42, dfIsCelsius ? 0xC9 : 0xC8 );               
 /*
 	switch ( dfScreenSaver )
 	{
@@ -815,7 +846,7 @@ __myevic__ void ShowBatCharging()
 		DrawImage( 30, 116, 0xE2 );
 	}*/
         
-	if ( BatteryTenth != 10 )
+/*	if ( BatteryTenth != 10 )
 	{
 		if ( BatAnimLevel )
 		{
@@ -825,11 +856,11 @@ __myevic__ void ShowBatCharging()
 			}
                         else
 			{*/
-				DrawFillRectLines( 32, 121, (25 * BatAnimLevel / 10 + 31), 125, 1 );
+//				DrawFillRectLines( 32, 121, (25 * BatAnimLevel / 10 + 31), 125, 1 );
 //			}
-		}
-	}
-	else if ( gFlags.draw_battery_charging )
+//		}
+//	}
+/*	else if ( gFlags.draw_battery_charging )
 	{
 /*		if ( dfBattLine == 0 )
 		{
@@ -837,9 +868,9 @@ __myevic__ void ShowBatCharging()
 		}
                 else
 		{*/
-			DrawFillRectLines( 32, 121, 56, 125, 1 );
+//			DrawFillRectLines( 32, 121, 56, 125, 1 );
 //		}
-	}
+//	}
 
 /*
 	if (( dfScreenSaver == SSAVER_CLOCK ) || ( dfScreenSaver == SSAVER_LOGO ))
@@ -852,40 +883,14 @@ __myevic__ void ShowBatCharging()
 */
 		for ( int i = 0 ; i < NumBatteries ; ++i )
 		{
-			DrawValue(  5, 61 + i * 14, BattVolts[NumBatteries - i - 1], 2, 0x1F, 3 );
-			DrawImage( 25, 63 + i * 14, 0x7D );
-			DrawValueRight(  51, 61 + i * 14, BatteryVoltsToPercent(BattVolts[NumBatteries - 1 - i]), 0, 0x1F, 2 );
-			DrawImage( 51, 63 + i * 14, 0xC2 );
+			DrawValue(  5-3, 73 + i * 14, BattVolts[NumBatteries - i - 1], 2, 0x1F, 3 );
+			DrawImage( 25-3, 75 + i * 14, 0x7D );
+			DrawValueRight(  43, 73 + i * 14, BatteryVoltsToPercent(BattVolts[NumBatteries - 1 - i]), 0, 0x1F, 2 );
+			DrawImage( 43, 76 + i * 14, 0xC2 );
                         
 		}
                 
-                if ( NumBatteries > 1 )
-                {
-//                DrawString( String_USB, 6, 0 );
-                DrawValue(  2, 37, USBVolts, 2, 0x1F, 3 );
-                DrawImage( 2+21, 37+2, 0x7D );
-        
-//                DrawString( String_Charge, 6, 20 );
-                DrawValue(  31, 37, ChargeCurrent / 10, 2, 0x1F, 3 );
-                DrawImage( 52, 37+2, 0x68 );
-                } else
-                {
-                    DrawString( String_Charge, 6, 0 );    
-                }
-        
-	//}
-        int t;
-        if ( ISSINFJ200 )
-        {
-                t = dfIsCelsius ? AkkuTemp : CelsiusToF( AkkuTemp );
-                DrawValueRight( 54, 116, t, 0, 0x0B, 0 );
-                DrawImage( 54, 118, dfIsCelsius ? 0xC9 : 0xC8 );
-        }
-                        
-	t = dfIsCelsius ? BoardTemp : CelsiusToF( BoardTemp );
 
-	DrawValueRight( 54, 116, t, 0, 0x0B, 0 );
-	DrawImage( 54, 118, dfIsCelsius ? 0xC9 : 0xC8 );
 }
 
 //=========================================================================
@@ -1141,6 +1146,12 @@ __myevic__ void ShowFlash()
 	DrawFillRect( 0, 0, 63, 127, 1 );
 //        DisplayRefresh();
 
+}
+
+__myevic__ void ShowFuckOff()
+{
+        DrawStringCentered( String_Fuck, 63 );
+        DrawStringCentered( String_sFuckOff, 75 );
 }
 
 //=========================================================================
